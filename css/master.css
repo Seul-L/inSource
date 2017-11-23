@@ -1,0 +1,161 @@
+/* master.css */
+
+/* CSS base style */
+
+* {
+  box-sizing: border-box;
+  font-size: 100.01%;
+}
+
+body {
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #101010;
+  background-color: #fdfdfd;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+h1 {
+  font-size: 1.5em;
+  /*24px*/
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+h2 {
+  font-size: 1.25em;
+  /*20px*/
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+h3 {
+  font-size: 1.18em;
+  /*19px*/
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+h4 {
+  font-size: 1.125em;
+  /*18px*/
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+p {
+  font-size: 1em;
+  /*16px*/
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: #101010;
+}
+
+/* navigation bar */
+
+#split-nav {
+  height: 66px;
+  background-color: #BFE2F5;
+  box-shadow: 0 0 23px 0 rgba(0, 0, 0, 0.34);
+  -webkit-box-shadow: 0 0 23px 0 rgba(0, 0, 0, 0.34);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.branding {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 1 60%;
+  flex: 0 1 60%;
+}
+
+.logo {
+  width: 10vw;
+}
+
+nav {
+  font-size: 1em;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 1 30%;
+  flex: 0 1 30%;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: white;
+  opacity: 60%;
+}
+
+nav ul {
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+button {
+  width: 96px;
+  height: 40px;
+  padding: 5px 15px;
+  border-radius: 25px;
+  text-align: center;
+  margin: 15px 0;
+  background-color: #F9F9F9;
+  display: inline-block;
+  color: #101010;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+button:hover {
+  border: 1.5px solid #fff;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+/* footer */
+
+footer {
+  height: 50px;
+  width: 100%;
+  bottom: 0;
+  background-color: #F2F2F2;
+  position: static;
+}
+
+.footer-content {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}
+
+.footer-logo {
+  margin-left: 20px;
+  width: 70px;
+  height: auto;
+}

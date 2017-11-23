@@ -1,0 +1,71 @@
+/* subpages css */
+
+/* global */
+
+.submission, .vote {
+  width: 800px;
+  margin: auto;
+}
+
+.red {
+  color: #C30016;
+  font-weight: 600;
+  margin: 0;
+}
+
+.align-right {
+  margin-right: 0;
+}
+
+/* submission phase */
+
+.form-submission {
+  width: 800px;
+  height: 300px;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* vote phase */
+
+.vote>form {
+  height: auto;
+}
+
+.vote {
+  height: auto;
+}
+
+label {
+  height: 65px;
+  border: 1px solid #ccc;
+  background-color: #EFEFEF;
+  box-shadow: 0 0 3px 0 #DBDBDB;
+  border-radius: 32px;
+  padding-top: 20px;
+  padding-left: 30px;
+  margin: 0 0 20px 0;
+  display: block;
+}
+
+label:hover {
+  background: #eee;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked+label {
+  font-weight: 600;
+  border-radius: 32px;
+  background-color: #DBDBDB;
+  box-shadow: inset 0 1px 3px 0 #B9B6B6, inset -1px -1px 2px 0 #B9B6B6, 2px 2px 2px 0 #B9B6B6;
+  cursor: pointer;
+}
+
+fieldset {
+  border-style: none;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
