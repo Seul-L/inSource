@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="inSource is a solution for bridging the communication gap between front-line workers and management by providing a platform to gather workplace issues and a tested Sprint process for rapidly developing solutions.">
+  <meta name="author" content="Seul, Jessica, Dhara, Jeff, Seyitan">
+  <title>inSource</title>
+
+  <!-- css -->
+  <link rel="stylesheet" href="http://localhost:8080/inSource/css/subpages.css">
+  <link rel="stylesheet" href="http://localhost:8080/inSource/css/dbrd_style.css">
+  <link rel="stylesheet" href="http://localhost:8080/inSource/css/master.css">
+
+  <!-- font -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600" rel="stylesheet">
+
+  <!-- font awesome -->
+  <script src="https://use.fontawesome.com/e5bc08cd73.js"></script>
+
+  <!-- jqery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.3/jquery.min.js"></script>
+</head>
+
+<body>
+  <header id="split-nav">
+    <div class="branding">
+      <a href="http://localhost:8080/inSource/index.php">
+      <img class="logo" src="http://localhost:8080/inSource/assets/logo_inSource.png" alt="inSource logo" /></a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="?page=dashboard">Dashboard</a></li>
+        <li><a href="?page=myAccount">My Account</a></li>
+        <li><button href="?page=logout">Log out</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h1>Q1 2017 Result</h1>
+  <!-- <?php
+    $status = 'Completed';
+
+    if ($status == 'Completed' )
+      $whatscolor = 'color: green';
+    else if ($status == 'Ongoing' )
+      $whatscolor = 'color: blue';
+  ?> -->
+  <p class="situation" style="<?php echo $whatscolor; ?>"><i class="fa fa-circle" aria-hidden="true"></i>Completed (Not Implemented)</p>
+  <p class="desc"><b>Topic:</b> How might we improve the current scheduling system?<br><br><b>Solution:</b> 3 possible solutions were discussed during the workshop but none were implemented due to...</p>
+
+  <footer>
+    <div class="footer-content">
+      <p><i class="fa fa-copyright" aria-hidden="true"></i> 2017
+        <img class="footer-logo" src="http://localhost:8080/inSource/assets/logo_inSource.png" alt="inSource logo"></p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
