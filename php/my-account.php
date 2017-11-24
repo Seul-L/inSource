@@ -11,10 +11,41 @@
     <head>
         <meta charset="UTF-8">
         <title>My Account</title>
-        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="inSource is a solution for bridging the communication gap between front-line workers and management by providing a platform to gather workplace issues and a tested Sprint process for rapidly developing solutions.">
+        <meta name="author" content="Seul, Jessica, Dhara, Jeff, Seyitan">
+        <title>inSource</title>
+
+        <!-- css -->
+        <link rel="stylesheet" href="/css/dbrd_style.css">
+        <link rel="stylesheet" href="/css/master.css">
+
+        <!-- font -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600" rel="stylesheet">
+
+        <!-- font awesome -->
+        <script src="https://use.fontawesome.com/e5bc08cd73.js"></script>
+
+        <!-- jqery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.3/jquery.min.js"></script>
     </head>
 
     <body id="myaccount-body-color">
+
+    <header id="split-nav">
+        <div class="branding">
+            <a href="/index.php">
+                <img class="logo" src="/assets/logo_inSource.png" alt="inSource logo" /></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="?page=dashboard">Dashboard</a></li>
+                <li><a href="?page=myAccount">My Account</a></li>
+                <li><button href="?page=logout">Log out</button></li>
+            </ul>
+        </nav>
+    </header>
 
 
     <?php //get info from mysql
