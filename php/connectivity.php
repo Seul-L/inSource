@@ -35,14 +35,21 @@ if(isset($_POST['password-submit'])) { //login page password submission
 /* account page */
 function passChange($sqlserver, $si_username, $current_password, $new_password, $rep_new_password) {
     echo 1;
-    echo $current_password;
-    echo $new_password;
-    echo $rep_new_password;
     if(!empty($current_password) and !empty($new_password) and $new_password == $rep_new_password){
-        mysqli_query($sqlserver, "INSERT INTO users (password) VALUE ('$new_password') WHERE username = '$si_username' AND password = '$current_password'") or die(mysqli_error($sqlserver));
-        mysqli_commit($conn);
-        $query = mysqli_query($sqlserver, "SELECT * FROM users WHERE username = '$si_username' AND password = '$new_password'") or die (mysqli_error($sqlserver));
-        $row = mysqli_fetch_array($query) or die(mysqli_error($sqlserver));
+        mysqli_autocommit($sqlserver, TRUE);
+        if(mysqli_query($sqlserver, "UPDATE users SET password = '$new_password' WHERE username LIKE '$si_username' AND password LIKE '$current_password'") /*or die(mysqli_error($sqlserver))*/){
+            echo "good";
+        } else {
+            echo "bad";
+        }
+        if(mysqli_query($sqlserver, "SELECT * FROM users WHERE username = '$si_username' AND password = '$new_password'")){
+            echo "pass";
+        } else {
+            echo "fail: " . mysqli_error($sqlserver);
+        }
+        $query = mysqli_query($sqlserver, "SELECT * FROM users WHERE username = '$si_username' AND password = '$new_password'");
+        $row = mysqli_fetch_array($query);
+        echo print_r($query);
         if(!empty($row['username']) AND !empty($row['password'])) {
             $_SESSION = $row;
             echo "PASSWORD SUCCESSFULLY CHANGED";
