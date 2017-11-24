@@ -33,6 +33,7 @@
 
     <body id="myaccount-body-color">
 
+
     <header id="split-nav">
         <div class="branding">
             <a href="/index.php">
@@ -158,31 +159,27 @@
 
     <fieldset style="width: 30%"><legend>Change Password</legend>
         <h1>Password must be 8 characters long</h1>
+        <form method="POST" action="/php/connectivity.php">
+            <div class="form-elements">
+                Current Password <br><input type="password" name="current-password" size="40">
+            </div>
 
-        <div class="form-elements">
-            <form method="POST" action="/php/connectivity.php">
-                Current Password <br><input type="password" name="current-password" size="40" value="<?php echo $pass; ?>">
-            </form>
-        </div>
-
-        <div class="form-elements">
-            <form method="POST" action="/php/connectivity.php">
+            <div class="form-elements">
                 New Password <br><input type="password" name="new-password" size="40">
-            </form>
-        </div>
+          </div>
 
-        <div class="form-elements">
-            <form method="POST" action="/php/connectivity.php">
+            <div class="form-elements">
                 Repeat New Password <br><input type="password" name="repeat-new-password" size="40">
-            </form>
-        </div>
-        <div class="submit-button">
-            <input id="save-button" type="submit" name="pass-reset-submit" value="Save Changes">
-        </div>
+            </div>
 
-        <div class="reset-button">
+            <div class="submit-button">
+            <input id="save-button" type="submit" name="pass-reset-submit" value="Save Changes">
+            </div>
+
+            <div class="reset-button">
             <input id="reset-button" type="submit" name="pass-reset-cancel" value="Reset">
-        </div>
+            </div>
+        </form>
 </div>
 </body>
 </html>
