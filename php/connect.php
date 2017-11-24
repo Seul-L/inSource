@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 function Connect() {
  $dbhost = "localhost";
  $dbuser = "root";
@@ -10,4 +10,4 @@ function Connect() {
 
  return $conn;
 }
-?>
+?> -->

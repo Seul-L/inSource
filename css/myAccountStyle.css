@@ -1,0 +1,323 @@
+/* css styling */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100.01%;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  line-height: 1.4;
+}
+
+body {
+  font-size: 16px;
+}
+
+p {
+  font-size: 1.125em;
+  font-weight: 400;
+}
+
+.my-account, .sign-in, .si-content {
+  display: block;
+  width: 700px;
+  margin: auto;
+}
+
+.sign-in {
+  margin: auto;
+  vertical-align: middle;
+}
+
+/*CSS for sign-in page*/
+
+.txtfield>h1 {
+  text-align: center;
+  position: relative;
+  display: block;
+  width: 700px;
+  margin: auto;
+}
+
+.form-field {
+  display: block;
+  width: 410px;
+  margin: auto;
+}
+
+.si-button {
+  font-size: 1.25em;
+  display: block;
+  height: 50px;
+  width: 410px;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 50px;
+  border-radius: 25px;
+  background-color: #BFE2F5;
+  /*box-shadow: 0 0 4px 2px #6CB3F0;*/
+}
+
+.fieldlg {
+  position: relative;
+  display: block;
+  width: 410px;
+  height: 50px;
+  margin: auto;
+  border: 1px solid gray;
+  border-radius: 10px;
+  font-size: 0.75em;
+  margin-top: 10px;
+}
+
+.fieldTop {
+  position: relative;
+  display: block;
+  width: 4100px;
+  height: 30px;
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
+/*CSS for account page*/
+
+.txtfield, .occup {
+  display: block;
+  position: relative;
+  width: 700px;
+  margin: auto;
+}
+
+.occup-content {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.notif {
+  display: block;
+  position: relative;
+  width: 700px;
+  margin: auto;
+}
+
+.buttons {
+  display: block;
+  width: 700px;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 50px;
+  padding-left: 20px;
+}
+
+.h3-lb {
+  color: #000;
+  font-size: 1.1em;
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-right: auto;
+}
+
+.h3-ck {
+  color: #000;
+  font-size: 1.1em;
+  margin-top: 20px;
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-right: auto;
+}
+
+.fieldBlock {
+  display: inline-block;
+  width: 200px;
+  float: left;
+  height: 40px;
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  font-size: 0.75em;
+}
+
+.fieldBlocklg {
+  display: inline-block;
+  width: 410px;
+  float: left;
+  height: 40px;
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  font-size: 0.75em;
+}
+
+.fieldBlockTop {
+  display: inline-block;
+  width: 200px;
+  float: left;
+  height: 30px;
+  padding: 10px;
+  margin: 5px;
+  margin-bottom: 60px;
+}
+
+input[type="text"]:disabled {
+  background: #dedede;
+}
+
+.lg {
+  width: 410px;
+}
+
+.fieldBlockTop>label {
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.lb-radio {
+  display: inline-block;
+  font-size: 1.125em;
+  line-height: 1.4em;
+  color: #333;
+  position: relative;
+  outline: none;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+input[type="radio"].occ-radio {
+  opacity: 0;
+  position: absolute;
+  cursor: pointer;
+}
+
+input[type="radio"]+.lb-radio:before {
+  content: '';
+  background: #fff;
+  border-radius: 100%;
+  border: 1px solid #ccc;
+  display: inline-block;
+  width: 1.6em;
+  height: 1.6em;
+  margin-right: 1em;
+  vertical-align: top;
+  cursor: pointer;
+  text-align: center;
+}
+
+input[type="radio"]:checked+.lb-radio:before {
+  background-color: #000;
+  border-color: #000;
+  box-shadow: inset 0 0 0 7px #fff;
+  cursor: pointer;
+}
+
+.checkbox-label {
+  display: inline-block;
+  font-size: 1.125em;
+  line-height: 1.4em;
+  color: #333;
+  position: relative;
+  outline: none;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"].com-checkbox {
+  opacity: 0;
+  position: absolute;
+  cursor: pointer;
+}
+
+input[type="checkbox"]+.checkbox-label:before {
+  content: '';
+  font-size: 1em;
+  background: #fff;
+  border: 1px solid #ccc;
+  display: inline-block;
+  width: 1.6em;
+  height: 1.6em;
+  margin-right: 1em;
+  vertical-align: top;
+  cursor: pointer;
+  text-align: center;
+}
+
+input[type="checkbox"]:checked+.checkbox-label:before {
+  content: "\2713";
+  color: #000;
+  border-color: #000;
+  cursor: pointer;
+}
+
+.ma-submit-btn {
+  width: 194px;
+  height: 44px;
+  padding: 10px 15px;
+  border-radius: 22px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  color: #101010;
+  background-color: #DBDBDB;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  font-size: 1.25em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ma-reset-btn {
+  width: 90px;
+  height: 44px;
+  padding: 10px 15px;
+  text-align: left;
+  display: inline-block;
+  background: transparent;
+  border: 0px solid transparent;
+  color: #101010;
+  font-size: 1.125em;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.red {
+  color: #D0021B;
+  padding-left: 20px;
+}
+
+.chng-pw {
+  display: block;
+  position: relative;
+  width: 800px;
+  margin: auto;
+  padding: 20px 50px;
+  border-top: 1px solid #D4D4D4;
+}
+
+.fieldBlock {
+  display: inline-block;
+  width: 200px;
+  float: left;
+  height: 40px;
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  font-size: 0.75em;
+}
+
+.txtform-elements {
+  margin-top: -50px;
+}
+
+.topmargin {
+  margin-top: 30px;
+}
