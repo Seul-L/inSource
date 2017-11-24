@@ -9,8 +9,6 @@
   <title>inSource</title>
 
   <!-- css -->
-  <link rel="stylesheet" href="http://localhost:8080/inSource/css/subpages.css">
-  <link rel="stylesheet" href="http://localhost:8080/inSource/css/dbrd_style.css">
   <link rel="stylesheet" href="http://localhost:8080/inSource/css/master.css">
 
   <!-- font -->

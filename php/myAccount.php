@@ -10,9 +10,6 @@
 
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="http://localhost:8080/inSource/css/myAccountStyle.css">
-    <link rel="stylesheet" type="text/css" href="http://localhost:8080/inSource/css/subpages.css">
-    <link rel="stylesheet" type="text/css" href="http://localhost:8080/inSource/css/dbrd_style.css">
-    <link rel="stylesheet" type="text/css" href="http://localhost:8080/inSource/css/master.css">
 
     <!-- font -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600" rel="stylesheet">
