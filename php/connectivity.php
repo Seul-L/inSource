@@ -1,4 +1,6 @@
 <?php
+session_start(); //starting session
+
 
 
 //connect to mysql
@@ -11,7 +13,6 @@ if (mysqli_connect_error()) {
 
 /* login page */
 function signIn($sqlserver, $si_username, $si_password) { //sign in function
-    session_start(); //starting session for the profile page
     if (!empty($si_username)) { //check username field has value
         $query = mysqli_query($sqlserver, "SELECT * FROM users WHERE username = '$si_username'");
         $row = mysqli_fetch_array($query);
@@ -22,15 +23,15 @@ function signIn($sqlserver, $si_username, $si_password) { //sign in function
             $query = mysqli_query($sqlserver, "SELECT * FROM users WHERE username = '$si_username'");
             $row = mysqli_fetch_array($query);
             if (password_verify($si_password, $row['password'])) {
-                $_SESSION = $row;
+                $_SESSION['username'] = $row['username'];
+                mysqli_query($sqlserver, "UPDATE users SET verified = 1 WHERE username = '$si_username'");
                 header("Location: /php/my-account.php");
             } else {
-                echo print_r(password_verify($si_password, $row['password']));
                 echo "SORRY, INCORRECT USERNAME OR PASSWORD";
             }
         } else {
             if (password_verify($si_password, $row['password'])) {
-                $_SESSION = $row;
+                $_SESSION['username'] = $row['username'];
                 header("Location: /php/my-account.php");
             } else {
                 echo "SORRY, INCORRECT USERNAME OR PASSWORD";
@@ -45,19 +46,21 @@ if(isset($_POST['password-submit'])) { //login page password submission
 }
 
 /* account page */
-function passChange($sqlserver, $si_username, $current_password, $new_password, $rep_new_password) {
+function passChange($sqlserver, $si_username, $current_password, $new_password, $rep_new_password){
     $query = mysqli_query($sqlserver, "SELECT * FROM users WHERE username = '$si_username'");
     $row = mysqli_fetch_array($query);
-    if (password_verify($current_password, $row['password']) and password_verify($rep_new_password, $new_password)) {
-        mysqli_query($sqlserver, "UPDATE users SET password = '$new_password' WHERE username = '$si_username'");
-        $query = mysqli_query($sqlserver, "SELECT * FROM users WHERE username = '$si_username'");
-        $row = mysqli_fetch_array($query);
-        session_unset();
-        $_SESSION = $row;
-        if(password_verify($rep_new_password, $row['password'])){
-            echo "PASSWORD SUCCESSFULLY CHANGED";
-        } else {
-            echo "SOMETHING WENT WRONG";
+    if (password_verify($current_password, $row['password'])) {
+        if (password_verify($rep_new_password, $new_password)) {
+            mysqli_query($sqlserver, "UPDATE users SET password = '$new_password' WHERE username = '$si_username'");
+            $query = mysqli_query($sqlserver, "SELECT * FROM users WHERE username = '$si_username'");
+            $row = mysqli_fetch_array($query);
+            session_unset();
+            $_SESSION = $row;
+            if (password_verify($rep_new_password, $row['password'])) {
+                echo "PASSWORD SUCCESSFULLY CHANGED";
+            } else {
+                echo "SOMETHING WENT WRONG";
+            }
         }
     }
 }
