@@ -1,36 +1,73 @@
 <?php
-$servername = "*";
-$database = "user_info";
-$username = "*";
-$password = "*";
+session_start(); //starting session
+
+
 
 //connect to mysql
 $conn = mysqli_connect($servername, $username, $password, $database);
-//mysqli_select_db($conn, $database);
 
 //check connection
 if (mysqli_connect_error()) {
     die("Connection failed: " . $conn->connect_error);
     }
-//echo "Connected Successfully";
-//echo !empty($_POST[user]);
 
-function signIn($sqlserver, $si_username, $si_password) {
-    session_start(); //starting session for the profile page
-    if(!empty($si_username)) { //check username field has value
-        $query = mysqli_query($sqlserver, "SELECT * FROM users WHERE Username = '$si_username' AND password = '$si_password'") or die (mysqli_error($sqlserver));
-        $row = mysqli_fetch_array($query) or die(mysqli_error($sqlserver));
-        if(!empty($row['username']) AND !empty($row['password'])) {
-            $_SESSION = $row;
-            echo "SUCCESSFULLY LOGGED IN";
-            header("Location: /php/my-account.php");
+/* login page */
+function signIn($sqlserver, $si_username, $si_password) { //sign in function
+    if (!empty($si_username)) { //check username field has value
+        $query = mysqli_query($sqlserver, "SELECT * FROM users WHERE username = '$si_username'");
+        $row = mysqli_fetch_array($query);
+        if ($row['verified'] == 0) {
+            $row['password'] = password_hash($row['password'], PASSWORD_DEFAULT);
+            $hashedpass = $row['password'];
+            mysqli_query($sqlserver, "UPDATE users SET password = '$hashedpass' WHERE username ='$si_username'");
+            $query = mysqli_query($sqlserver, "SELECT * FROM users WHERE username = '$si_username'");
+            $row = mysqli_fetch_array($query);
+            if (password_verify($si_password, $row['password'])) {
+                $_SESSION['username'] = $row['username'];
+                mysqli_query($sqlserver, "UPDATE users SET verified = 1 WHERE username = '$si_username'");
+                header("Location: /php/my-account.php");
+            } else {
+                echo "SORRY, INCORRECT USERNAME OR PASSWORD";
+            }
+        } else {
+            if (password_verify($si_password, $row['password'])) {
+                $_SESSION['username'] = $row['username'];
+                header("Location: /php/my-account.php");
+            } else {
+                echo "SORRY, INCORRECT USERNAME OR PASSWORD";
+                }
+            }
         }
-        else {
-            echo "SORRY, INCORRECT USERNAME OR PASSWORD";
+    }
+
+
+if(isset($_POST['password-submit'])) { //login page password submission
+    signIn($conn, $_POST["user"], $_POST["pass"]);
+}
+
+/* account page */
+function passChange($sqlserver, $si_username, $current_password, $new_password, $rep_new_password){
+    $query = mysqli_query($sqlserver, "SELECT * FROM users WHERE username = '$si_username'");
+    $row = mysqli_fetch_array($query);
+    if (password_verify($current_password, $row['password'])) {
+        if (password_verify($rep_new_password, $new_password)) {
+            mysqli_query($sqlserver, "UPDATE users SET password = '$new_password' WHERE username = '$si_username'");
+            $query = mysqli_query($sqlserver, "SELECT * FROM users WHERE username = '$si_username'");
+            $row = mysqli_fetch_array($query);
+            session_unset();
+            $_SESSION = $row;
+            if (password_verify($rep_new_password, $row['password'])) {
+                echo "PASSWORD SUCCESSFULLY CHANGED";
+            } else {
+                echo "SOMETHING WENT WRONG";
+            }
         }
     }
 }
-if(isset($_POST['password-submit'])) {
-    signIn($conn, $_POST[user], $_POST[pass]);
+
+
+//account page password change
+if(isset($_POST['pass-reset-submit'])) {
+    passChange($conn, $_SESSION['username'], $_POST['current-password'], password_hash($_POST['new-password'], PASSWORD_DEFAULT), $_POST['repeat-new-password']);
 }
 ?>
