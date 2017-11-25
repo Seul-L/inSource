@@ -3,14 +3,11 @@
   Date: 2017-11-23
   Time: 10:48 AM -->
 
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
 
     <head>
-        <meta charset="UTF-8">
-        <title>My Account</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="inSource is a solution for bridging the communication gap between front-line workers and management by providing a platform to gather workplace issues and a tested Sprint process for rapidly developing solutions.">
@@ -19,7 +16,7 @@
 
         <!-- css -->
         <link rel="stylesheet" href="/css/dbrd_style.css">
-        <link rel="stylesheet" href="/css/master.css">
+        <link rel="stylesheet" href="/css/myAccountStyle.css">
 
         <!-- font -->
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600" rel="stylesheet">
@@ -31,7 +28,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.3/jquery.min.js"></script>
     </head>
 
-    <body id="myaccount-body-color">
+    <body>
 
 
     <header id="split-nav">
@@ -79,36 +76,34 @@
         ?>
 
 <div id="My Account">
-    <fieldset style="width: 30%"><legend>My Account</legend>
-
-        <div class="form-elements">
-            <form method="POST" action="/php/connectivity.php">
-                Last Name <br><input type="text" name="ma-last-name" size="40" value="<?php echo($lastname); ?>" >
-            </form>
+    <div class="txtfield">
+        <h2>My Account</h2>
+        <form method="POST" action="/php/connectivity.php">
+        <div class="fieldBlockTop">
+            <label for="last-name">Last Name</label>
+            <input type="text" name="ma-last-name" size="40" value="<?php echo($lastname); ?>" >
         </div>
 
-        <div class="form-elements">
-            <form method="POST" action="/php/connectivity.php">
-                First Name <br><input type="text" name="ma-first-name" size="40" value="<?php echo($firstname); ?>">
-            </form>
+        <div class="fieldBlockTop">
+            <label for="first-name">First Name</label>
+            <input type="text" name="ma-first-name" size="40" value="<?php echo($firstname); ?>">
         </div>
 
-        <div class="form-elements">
-            <form method="POST" action="/php/connectivity.php">
-                User Name <br><input type="text" name="ma-user-name" size="40" value="<?php echo($username); ?>">
-            </form>
+        <div class="fieldBlockTop">
+            <label for="user-name">User Name</label>
+            <input type="text" name="ma-user-name" size="40" value="<?php echo($username); ?>">
         </div>
 
-        <div class="form-elements">
-            <form method="POST" action="/php/connectivity.php">
-                Email <br><input type="text" name="ma-email" size="80" value="<?php echo($email); ?>">
-            </form>
+        <div class="fieldBlockTop">
+            <label for="user-email">Email</label>
+            <input type="text" name="ma-email" size="80" value="<?php echo($email); ?>">
         </div>
 
-        <div class="form-elements">
-            <form method="POST" action="/php/connectivity.php">
-                Phone Number <br><input type="text" name="ma-phone-number" size="40" value="<?php echo($phonenumber); ?>">
-            </form>
+        <div class="fieldBlockTop">
+            <label for="user-phone-number">Phone Number</label>
+            <input type="text" name="ma-phone-number" size="40" value="<?php echo($phonenumber); ?>">
+        </div>
+        </form>
         </div>
 
         <?php
@@ -120,13 +115,25 @@
             $manager = "checked";
         }
         ?>
-        <div class="occupation-radios">
-            <form method="POST" action="/php/connectivity.php">
-                <input type="radio" name="ma-occupation" value="transit operator" <?php echo $transop; ?>>Transit Operator
-                <input type="radio" name="ma-occupation" value="supervisor" <?php echo $superv; ?>>Supervisor
-                <input type="radio" name="ma-occupation" value="management" <?php echo $manager; ?>>Management
-            </form>
+
+        <div class="occup">
+            <div class="occup-content">
+                <h3 class="h3-lb">Occupation*</h3>
+                <form method="POST" action="/php/connectivity.php">
+                    <div class="options">
+                        <input type="radio" name="ma-occupation" id="transit-operator" class="occ-radio" value="transit operator" <?php echo $transop; ?>>
+                        <label for="transit-operator" class="lb-radio">Transit Operator</label>
+
+                        <input type="radio" name="ma-occupation" id="superv" class="occ-radio" value="supervisor" <?php echo $superv; ?>>
+                        <label for="superv" class="lb-radio">Supervisor</label>
+
+                        <input type="radio" name="ma-occupation" id="mngt" class="occ-radio" value="management" <?php echo $manager; ?>>
+                        <label for="mngt" class="lb-radio">Management</label>
+                    </div>
+                </form>
+            </div>
         </div>
+            <br>
 
         <?php
         if($preferredcomm = 0){
@@ -138,49 +145,52 @@
         }
         ?>
 
-        <div class="communication-method">
+            <div class="notif">
+                <h3 class="h3-ck">Prefered Method of Notification*</h3>
+                <form method="POST" action="/php/connectivity.php">
+                    <div class="communication-method">
+
+                        <input type="checkbox" name="comm-method" id="chk-email" value="email"><label for="chk-email" class="checkbox-label" name="comm-method" <?php echo $prefemail; echo $prefboth ?>>Email</label>
+
+                        <input type="checkbox" name="comm-method" id="chk-sms" value="sms"><label for="chk-sms" class="checkbox-label" name="comm-method" <?php echo $prefsms; echo $prefboth ?>>SMS Message</label>
+                    </div>
+                </form>
+            </div>
+
+            <div class="buttons">
+                <input id="save-button" type="submit" name="ma-submit" value="Save Changes" class="ma-submit-btn">
+                <input id="reset-button" type="submit" name="ma-reset" value="Reset" class="ma-reset-btn">
+            </div>
+</div>
+
+    <div class="chng-pw">
+        <h2>Change Password</h2>
+        <p class="red">Password must be at least 8 characters long</p>
+
+        <div class="txtform-elements">
             <form method="POST" action="/php/connectivity.php">
-                <input type="checkbox" name="comm-method" value="email" <?php echo $prefemail; echo $prefboth ?>>Email
-                <input type="checkbox" name="comm-method" value="sms" <?php echo $prefsms; echo $prefboth ?>>Text Message
+                <div class="fieldBlockTop">
+                    <label for="curr-pw">Current Password</label>
+                    <input type="password" name="current-password" size="40" id="curr-pw" class="fieldBlock">
+                </div>
+
+                <div class="fieldBlockTop">
+                    <label for="new-pw">New Password</label>
+                    <input type="password" name="new-password" size="40" id="new-pw" class="fieldBlock">
+                </div>
+
+                <div class="fieldBlockTop">
+                    <label for="rpt-new-pw">Repeat New Password</label>
+                    <input type="password" name="repeat-new-password" size="40" id="rpt-new-pw" class="fieldBlock">
+                </div>
+
+                <div class="buttons">
+                    <input id="save-button" type="submit" name="pass-reset-submit" value="Save Changes" class="ma-submit-btn topmargin">
+                    <input id="reset-button" type="submit" name="pass-reset-cancel" value="Reset" class="ma-reset-btn topmargin">
+                </div>
             </form>
         </div>
-
-        <div class="submit-button">
-            <input id="save-button" type="submit" name="ma-submit" value="Save Changes">
-        </div>
-
-        <div class="reset-button">
-            <input id="reset-button" type="submit" name="ma-reset" value="Reset">
-        </div>
-
-    </fieldset>
-
-    <hr>
-
-    <fieldset style="width: 30%"><legend>Change Password</legend>
-        <h1>Password must be 8 characters long</h1>
-        <form method="POST" action="/php/connectivity.php">
-            <div class="form-elements">
-                Current Password <br><input type="password" name="current-password" size="40">
-            </div>
-
-            <div class="form-elements">
-                New Password <br><input type="password" name="new-password" size="40">
-          </div>
-
-            <div class="form-elements">
-                Repeat New Password <br><input type="password" name="repeat-new-password" size="40">
-            </div>
-
-            <div class="submit-button">
-            <input id="save-button" type="submit" name="pass-reset-submit" value="Save Changes">
-            </div>
-
-            <div class="reset-button">
-            <input id="reset-button" type="submit" name="pass-reset-cancel" value="Reset">
-            </div>
-        </form>
-</div>
+    </div>
 </body>
 </html>
 
