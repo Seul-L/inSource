@@ -6,9 +6,11 @@
 
   <p>Topics have been formed around the issues submitted during the submission period. Members are invited to vote on the particular issues they want addressed at the upcoming Sprint Workshop.</p>
 
-  <form action="php/vote_received.php" method="post" target="">
+  <form action="php/vote_received.php" method="post" target="" id="vote-submit">
     <!-- <fieldset> -->
     <input type="hidden" name="recieved-date" id="todayDate" />
+
+    <input type="hidden" name="user-occup" id="user-occup" value="occup" />
 
     <input type="checkbox" name="voting[]" value="How might we improve driver facilities such as lunch rooms or break rooms?" id="voting_1">
     <label for="voting_1">How might we improve driver facilities such as lunch rooms or break rooms?</label>
@@ -46,5 +48,25 @@
 
     //call getDate() when loading the page
     getDate();
+
+    $("#vote-submit").submit(function(event) {
+      /* stop form from submitting normally */
+      event.preventDefault();
+
+      /* get some values from elements on the page: */
+      var $form = $(this),
+        $submit = $form.find('button[type="submit"]'),
+        message_value = $form.find('textarea[name="submission"]').val(),
+        url = $form.attr('action');
+
+      var posting = $.post(url, { submission : message_value});
+
+      posting.done(function(data) {
+        /* Put the results in a div */
+        $("#form_success").html('<h2>THANK YOU!</h2><p>Thank you for your voting. Meeting invitations will be send out on December 7th, 2017. <br> You selected $N vote(s): <br> <?php echo $var1; ?>');
+        /* Hide form */
+        $form.hide();
+      });
+    });
   </script>
 </section>
