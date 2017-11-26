@@ -82,7 +82,7 @@ p {
 
 /*CSS for account page*/
 
-.txtfield, .occup {
+.txtfield {
   display: block;
   position: relative;
   width: 700px;
@@ -91,6 +91,8 @@ p {
 
 .occup-content {
   display: inline-block;
+  width: 700px;
+  margin: auto;
   margin-top: 10px;
 }
 

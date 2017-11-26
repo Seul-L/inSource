@@ -150,7 +150,7 @@
       <form method="POST" action="/php/connectivity.php">
         <div class="fieldBlockTop">
           <label for="curr-pw">Current Password</label>
-          <input type="password" name="current-password" size="40" id="curr-pw" class="fieldBlock" value="<?php echo $pass; ?>">
+          <input type="password" name="current-password" size="40" id="curr-pw" class="fieldBlock" value="">
         </div>
 
         <div class="fieldBlockTop">
