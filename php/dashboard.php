@@ -22,6 +22,8 @@
 
   <!-- jqery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.3/jquery.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
 </head>
 
 <body>
@@ -63,16 +65,12 @@
     <div class="subpage">
       <div id="div1" class="targetDiv">
         <section>
-          <?php
-            readfile("http://localhost:8080/inSource/html/submission.html");
-          ?>
+          <?php require("submission.php"); ?>
         </section>
       </div>
       <div id="div2" class="targetDiv">
         <section>
-          <?php
-            readfile("http://localhost:8080/inSource/html/vote.html");
-          ?>
+          <?php require("vote.php"); ?>
         </section>
       </div>
       <div id="div3" class="targetDiv">
@@ -311,13 +309,8 @@
           for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
           }
-          for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-          }
           slides[slideIndex - 1].style.display = "block";
-          dots[slideIndex - 1].className += " active";
         }
-
       </script>
 </body>
 
