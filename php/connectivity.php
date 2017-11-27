@@ -44,8 +44,8 @@ function signIn($sqlserver, $si_username, $si_password)
 
 
 if (isset($_POST['password-submit'])) { //login page password submission
-    $username = mysqli_real_escape_string($conn, $_POST['user']); //stripslashes($_POST['user']);
-    $password = mysqli_real_escape_string($conn, $_POST['pass']); //stripslashes($_POST['pass']);
+    $username = mysqli_real_escape_string($conn, $_POST['user']);
+    $password = mysqli_real_escape_string($conn, $_POST['pass']);
     signIn($conn, $username, $password);
 }
 
@@ -53,8 +53,13 @@ if (isset($_POST['password-submit'])) { //login page password submission
 //password update
 function passChange($sqlserver, $si_username, $current_password, $new_password, $rep_new_password)
 {
+    $current_password = mysqli_real_escape_string($sqlserver, $current_password);
+    $new_password = mysqli_real_escape_string($sqlserver, $new_password);
+    $rep_new_password = mysqli_real_escape_string($sqlserver, $rep_new_password);
+
     $query = mysqli_query($sqlserver, "SELECT * FROM users WHERE username = '$si_username'");
     $row = mysqli_fetch_array($query);
+
     if (password_verify($current_password, $row['password'])) {
         if (password_verify($rep_new_password, $new_password)) {
             mysqli_query($sqlserver, "UPDATE users SET password = '$new_password' WHERE username = '$si_username'");
@@ -76,6 +81,8 @@ function passChange($sqlserver, $si_username, $current_password, $new_password, 
 
 //account info update
 function infoChange($sqlserver, $si_username, $ph_number, $comm_method){
+    $ph_number = mysqli_real_escape_string($sqlserver, $ph_number);
+
     $query = mysqli_query($sqlserver, "SELECT * FROM users WHERE username = '$si_username'");
     $row = mysqli_fetch_array($query);
 
@@ -117,9 +124,7 @@ function commFind($contactForm, $ph_number) {
 
 //account page buttons
 if (isset($_POST['pass-reset-submit'])) { //password change
-    $currentpass = mysqli_real_escape_string($conn, $_POST['current-password']);
-    $repeatnewpass = mysqli_real_escape_string($conn, $_POST['repeat-new-password']);
-    passChange($conn, $_SESSION['username'], $currentpass, password_hash($_POST['new-password'], PASSWORD_DEFAULT), $repeatnewpass);
+    passChange($conn, $_SESSION['username'], $_POST['current-password'], password_hash($_POST['new-password'], PASSWORD_DEFAULT), $_POST['repeat-new-password']);
 } elseif (isset($_POST['pass-reset-cancel'])) { //password change cancel
     myAccountReset();
 } elseif (isset($_POST['ma-submit'])) { //account info change

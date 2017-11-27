@@ -133,8 +133,6 @@ if (isset($_SESSION['user_set_password'])) {
         $prefemail = "checked";
         $prefsms = "checked";
     }
-    echo "comm: " . $preferredcomm;
-    echo $prefsms;
     ?>
 
     <div class="notif">
