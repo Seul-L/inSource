@@ -7,3 +7,4 @@
  */
 session_start();
 
+//todo build something that checks if a user is logged in using $_SESSION and then require it on each internal page

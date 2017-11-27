@@ -1,10 +1,7 @@
 <?php
 session_start(); //starting session
 
-$servername = "127.0.0.1";
-$database = "user_info";
-$username = "j2towers";
-$password = "password";
+
 
 
 //connect to mysql
@@ -67,6 +64,7 @@ function passChange($sqlserver, $si_username, $current_password, $new_password, 
             $_SESSION = $row;
             if (password_verify($rep_new_password, $row['password'])) {
                 echo "PASSWORD SUCCESSFULLY CHANGED";
+                mysqli_query($sqlserver, "UPDATE users SET user_set_password = 1 WHERE username = '$si_username'");
                 //todo add redirect here back to account page or...?
             } else {
                 echo "SOMETHING WENT WRONG";
@@ -76,28 +74,66 @@ function passChange($sqlserver, $si_username, $current_password, $new_password, 
     }
 }
 
-//account page password change
-if (isset($_POST['pass-reset-submit'])) {
+//account info update
+function infoChange($sqlserver, $si_username, $ph_number, $comm_method){
+    $query = mysqli_query($sqlserver, "SELECT * FROM users WHERE username = '$si_username'");
+    $row = mysqli_fetch_array($query);
+
+    if ($row['phone_number'] != $ph_number) { //update phone number
+        mysqli_query($sqlserver, "UPDATE users SET phone_number = '$ph_number' WHERE username = '$si_username'");
+        session_unset();
+        $query = mysqli_query($sqlserver, "SELECT * FROM users WHERE username = '$si_username'");
+        $row = mysqli_fetch_array($query);
+        $_SESSION = $row;
+    }
+    if ($row['comm_method'] != $comm_method) { //update communication method
+        mysqli_query($sqlserver, "UPDATE users SET preferred_communication = $comm_method WHERE username = '$si_username'");
+        session_unset();
+        $query = mysqli_query($sqlserver, "SELECT * FROM users WHERE username = '$si_username'");
+        $row = mysqli_fetch_array($query);
+        $_SESSION = $row;
+    }
+}
+
+
+function commFind($contactForm, $ph_number) {
+    if(!empty($ph_number)){
+        if(in_array("email", $contactForm)){
+            if(in_array("sms", $contactForm)){
+                return 2;
+            } else {
+                return 0;
+            }
+        } elseif (in_array("sms", $contactForm)){
+            return 1;
+        } else {
+            return 0;
+        }
+    } else {
+        return 0;
+    }
+}
+
+
+//account page buttons
+if (isset($_POST['pass-reset-submit'])) { //password change
     $currentpass = mysqli_real_escape_string($conn, $_POST['current-password']);
     $repeatnewpass = mysqli_real_escape_string($conn, $_POST['repeat-new-password']);
     passChange($conn, $_SESSION['username'], $currentpass, password_hash($_POST['new-password'], PASSWORD_DEFAULT), $repeatnewpass);
+} elseif (isset($_POST['pass-reset-cancel'])) { //password change cancel
+    myAccountReset();
+} elseif (isset($_POST['ma-submit'])) { //account info change
+    $commType = commFind($_POST['comm-method'], $_POST['ma-phone-number']);
+    echo "commtype: " . $commType;
+    echo print_r($_POST['comm-method']);
+    infoChange($conn, $_SESSION['username'], $_POST['ma-phone-number'], $commType);
+} elseif (isset($_POST['ma-reset'])) { //account info change cancel
+    myAccountReset();
 }
 
 //reset buttons
 function myAccountReset() {
     header("LOCATION: /php/my-account.php");
 }
-
-//account page password reset
-if (isset($_POST['pass-reset-cancel'])) {
-    myAccountReset();
-}
-
-//account page user info reset
-if (isset($_POST['ma-reset'])) {
-    myAccountReset();
-}
-
-//
 
 ?>

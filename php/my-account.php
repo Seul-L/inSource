@@ -4,8 +4,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-          content="inSource is a solution for bridging the communication gap between front-line workers and management by providing a platform to gather workplace issues and a tested Sprint process for rapidly developing solutions.">
+    <meta name="description" content="inSource is a solution for bridging the communication gap between front-line workers and management by providing a platform to gather workplace issues and a tested Sprint process for rapidly developing solutions.">
     <meta name="author" content="Seul, Jessica, Dhara, Jeff, Seyitan">
     <title>inSource</title>
 
@@ -50,6 +49,10 @@ if (isset($_SESSION['preferred_communication'])) {
 if (isset($_SESSION['password'])) {
     $pass = $_SESSION['password'];
 }
+if (isset($_SESSION['user_set_password'])) {
+    $usersetpass = $_SESSION['user_set_password'];
+}
+
 ?>
 
 <div class="my-ccount">
@@ -84,11 +87,10 @@ if (isset($_SESSION['password'])) {
 
 
             <div class="fieldBlockTop">
-                <label for="user-phone-number">Phone Number</label>
+                <label for="user-phone-number">Cell Phone Number</label>
                 <input type="text" name="ma-phone-number" size="40" value="<?php echo($phonenumber); ?>"
                        id="user-phone-number" class="fieldBlock">
             </div>
-        </form>
     </div>
     <br>
 
@@ -105,7 +107,6 @@ if (isset($_SESSION['password'])) {
     <div class="occup">
         <div class="occup-content">
             <h3 class="h3-lb">Occupation*</h3>
-            <form method="POST" action="/php/connectivity.php">
                 <div class="options">
                     <input type="radio" name="ma-occupation" id="transit-operator" class="occ-radio"
                            value="transit operator" <?php echo $transop; ?> disabled>
@@ -129,7 +130,8 @@ if (isset($_SESSION['password'])) {
     } else if ($preferredcomm = 1) {
         $prefsms = "checked";
     } else if ($preferredcomm = 2) {
-        $prefboth = "checked";
+        $prefemail = "checked";
+        $prefsms = "checked";
     }
     ?>
 
@@ -137,15 +139,11 @@ if (isset($_SESSION['password'])) {
         <h3 class="h3-ck">Prefered Method of Notification*</h3>
         <div class="communication-method">
 
-            <input type="checkbox" name="comm-method" id="chk-email" value="email"><label for="chk-email"
-                                                                                          class="checkbox-label"
-                                                                                          name="comm-method" <?php echo $prefemail;
-            echo $prefboth ?>>Email</label>
+            <input type="checkbox" name="comm-method[]" id="chk-email" value="email">
+                <label for="chk-email" class="checkbox-label" <?php echo $prefemail; ?>>Email</label>
 
-            <input type="checkbox" name="comm-method" id="chk-sms" value="sms"><label for="chk-sms"
-                                                                                      class="checkbox-label"
-                                                                                      name="comm-method" <?php echo $prefsms;
-            echo $prefboth ?>>SMS Message</label>
+            <input type="checkbox" name="comm-method[]" id="chk-sms" value="sms">
+                <label for="chk-sms" class="checkbox-label" <?php echo $prefsms; ?>>SMS Message</label>
         </div>
 
     </div>
