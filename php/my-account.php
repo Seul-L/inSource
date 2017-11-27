@@ -133,17 +133,19 @@ if (isset($_SESSION['user_set_password'])) {
         $prefemail = "checked";
         $prefsms = "checked";
     }
+    echo "comm: " . $preferredcomm;
+    echo $prefsms;
     ?>
 
     <div class="notif">
         <h3 class="h3-ck">Prefered Method of Notification*</h3>
         <div class="communication-method">
 
-            <input type="checkbox" name="comm-method[]" id="chk-email" value="email">
-                <label for="chk-email" class="checkbox-label" <?php echo $prefemail; ?>>Email</label>
+            <input type="checkbox" name="comm-method[]" id="chk-email" value="email" <?php echo $prefemail; ?>>
+                <label for="chk-email" class="checkbox-label">Email</label>
 
-            <input type="checkbox" name="comm-method[]" id="chk-sms" value="sms">
-                <label for="chk-sms" class="checkbox-label" <?php echo $prefsms; ?>>SMS Message</label>
+            <input type="checkbox" name="comm-method[]" id="chk-sms" value="sms" <?php echo $prefsms; ?>>
+                <label for="chk-sms" class="checkbox-label">SMS Message</label>
         </div>
 
     </div>
