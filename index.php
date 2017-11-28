@@ -9,8 +9,7 @@
   <title>inSource</title>
 
   <!-- css -->
-  <link rel="stylesheet" href="/css/subpages.css">
-  <link rel="stylesheet" href="/css/dbrd_style.css">
+
   <link rel="stylesheet" href="/css/master.css">
 
   <!-- font -->
@@ -21,6 +20,8 @@
 
   <!-- jqery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.3/jquery.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
 </head>
 
 <body>
@@ -32,8 +33,8 @@
     <nav>
       <ul>
         <li><a href="?page=dashboard">Dashboard</a></li>
-        <li><a href="?page=myAccount">My Account</a></li>
-        <li><button href="?page=logout">Log out</button></li>
+        <li><a href="?page=my-account">My Account</a></li>
+          <li><a href="?page=log-out" class="button">Log out</a></li>
       </ul>
     </nav>
   </header>
