@@ -109,15 +109,15 @@ if (isset($_SESSION['user_set_password'])) {
             <h3 class="h3-lb">Occupation*</h3>
                 <div class="options">
                     <input type="radio" name="ma-occupation" id="transit-operator" class="occ-radio"
-                           value="transit operator" <?php echo $transop; ?> disabled>
+                           value="transit operator" <?php echo $transop; ?> disabled="disabled">
                     <label for="transit-operator" class="lb-radio">Transit Operator</label>
 
                     <input type="radio" name="ma-occupation" id="superv" class="occ-radio"
-                           value="supervisor" <?php echo $superv; ?> disabled>
+                           value="supervisor" <?php echo $superv; ?> disabled="disabled">
                     <label for="superv" class="lb-radio">Supervisor</label>
 
                     <input type="radio" name="ma-occupation" id="mngt" class="occ-radio"
-                           value="management" <?php echo $manager; ?> disabled>
+                           value="management" <?php echo $manager; ?> disabled="disabled">
                     <label for="mngt" class="lb-radio">Management</label>
                 </div>
         </div>
