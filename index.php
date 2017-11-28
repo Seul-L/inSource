@@ -10,8 +10,6 @@
 
   <!-- css -->
   <link rel="stylesheet" href="/css/subpages.css">
-  <link rel="stylesheet" href="/css/dbrd_style.css">
-  <link rel="stylesheet" href="/css/master.css">
 
   <!-- font -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600" rel="stylesheet">
