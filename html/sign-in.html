@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="inSource is a solution for bridging the communication gap between front-line workers and management by providing a platform to gather workplace issues and a tested Sprint process for rapidly developing solutions.">
+  <meta name="author" content="Seul, Jessica, Dhara, Jeff, Seyitan">
+  <title>inSource</title>
+
+  <!-- css -->
+  <link rel="stylesheet" href="/css/myAccountStyle.css">
+
+  <!-- font -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600" rel="stylesheet">
+
+  <!-- font awesome -->
+  <script src="https://use.fontawesome.com/e5bc08cd73.js"></script>
+
+  <!-- jqery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.3/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <div class="sign-in">
+    <div class="txtfield">
+      <h1>Member Log In</h1>
+      <div class="si-content">
+        <form method="POST" action="/php/connectivity.php" class="form-field">
+
+          <div class="fieldTop lg">
+            <label for="si-user">User</label>
+            <input type="text" name="user" size="40" id="si-user" class="fieldlg">
+          </div>
+          <br>
+
+          <div class="fieldTop lg">
+            <label for="user-pw">Password</label>
+            <input type="password" name="pass" size="40" id="user-pw" class="fieldlg">
+          </div>
+      </div>
+      <br>
+
+      <div>
+        <input id="login-button" type="submit" name="password-submit" value="Log-In" class="si-button">
+      </div>
+
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
