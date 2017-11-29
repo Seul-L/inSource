@@ -1,3 +1,8 @@
+<?php
+
+require "sign-in-check.php";
+
+?>
 
 <!DOCTYPE html>
 <html>
