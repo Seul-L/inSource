@@ -9,8 +9,12 @@
   <title>inSource</title>
 
   <!-- css -->
+<<<<<<< HEAD
 
   <link rel="stylesheet" href="/css/master.css">
+=======
+  <link rel="stylesheet" href="/css/subpages.css">
+>>>>>>> origin/Jeff
 
   <!-- font -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600" rel="stylesheet">
