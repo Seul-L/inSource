@@ -4,6 +4,7 @@ session_start(); //starting session
 
 
 
+
 //connect to mysql
 $conn = mysqli_connect($servername, $username, $password, $database);
 
@@ -30,8 +31,15 @@ function signIn($sqlserver, $si_username, $si_password)
                 mysqli_query($sqlserver, "UPDATE users SET verified = 1 WHERE username = '$si_username'");
                 header("Location: /index.php?page=my-account");
             } else {
-                //todo make this a dialogue box or include nav on connectivity
-                echo "SORRY, INCORRECT USERNAME OR PASSWORD";
+                ?>
+
+                <script type="text/javascript">
+                    alert('Wrong Username or Password');
+                    window.location.href = "/html/sign-in.html";
+                </script>
+
+<?php
+                //header("Location: /html/sign-in.html");
             }
         } else {
             if (password_verify($si_password, $row['password'])) {
@@ -39,8 +47,14 @@ function signIn($sqlserver, $si_username, $si_password)
                 $_SESSION['username'] = $row['username'];
                 header("Location: /index.php?page=my-account");
             } else {
-                //todo make this a dialogue box or include nav on connectivity
-                echo "SORRY, INCORRECT USERNAME OR PASSWORD";
+                ?>
+
+                <script type="text/javascript">
+                    alert('Wrong Username or Password');
+                    window.location.href = "/html/sign-in.html";
+                </script>
+
+<?php
             }
         }
     }
@@ -73,9 +87,15 @@ function passChange($sqlserver, $si_username, $current_password, $new_password, 
                 $row = mysqli_fetch_array($query);
                 $_SESSION = $row;
                 if (password_verify($rep_new_password, $row['password'])) {
-                    echo "PASSWORD SUCCESSFULLY CHANGED";
-                    //todo add redirect here back to account page or...?
-                    header("Location: /index.php?page=my-account");
+                    ?>
+
+                    <script type="text/javascript">
+                        alert('Password successfully changed.');
+                        window.location.href = "/index.php?page=my-account";
+                    </script>
+
+<?php
+
                 } else {
                     echo "SOMETHING WENT WRONG";
                     //todo add redirect here to...?

@@ -7,7 +7,7 @@
  */
 session_start();
 if (!isset($_SESSION['username'])) {
-    header("Location: http://letsinsourceit.com");
+    header("Location: http://localhost");
 }
 
 ?>
