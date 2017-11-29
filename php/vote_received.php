@@ -11,8 +11,8 @@
             echo("<h2>SUBMISSIONS</h2><br><br><h4>Recieved submission</h4><br><p>You selected $N vote(s): ");
             for($i=0; $i < $N; $i++) {
                 $var1=$votings[$i];
-                $conn = mysqli_connect("localhost", "root", "*****");
-                mysqli_select_db($conn, "inSource_local");
+                $conn = mysqli_connect("*", "*", "*****");
+                mysqli_select_db($conn, "user_info");
 
                 $sql = "INSERT INTO vote_response (voting, created) VALUES('$var1', now())";
                 $success = mysqli_query($conn, $sql);
@@ -23,13 +23,8 @@
                   echo $var1;
                   $conn->close();
             }
-            // echo "successfully uploaded!..";
     }
-  } else {
-      echo "error please check your code";
   }
-
-  // header('Location: http://localhost:8080/inSource/index.php');
   ?>
 
 </section>

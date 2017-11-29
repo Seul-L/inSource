@@ -35,6 +35,7 @@
   float: right;
   font-size: 1.25em;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .progress-bar {

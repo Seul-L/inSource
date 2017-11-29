@@ -1,28 +1,7 @@
-<!DOCTYPE html>
-<html>
+<?php
 
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="inSource is a solution for bridging the communication gap between front-line workers and management by providing a platform to gather workplace issues and a tested Sprint process for rapidly developing solutions.">
-    <meta name="author" content="Seul, Jessica, Dhara, Jeff, Seyitan">
-    <title>inSource</title>
+require "sign-in-check.php";
 
-    <!-- css -->
-    <link rel="stylesheet" type="text/css" href="/css/myAccountStyle.css">
-
-    <!-- font -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600" rel="stylesheet">
-
-    <!-- font awesome -->
-    <script src="https://use.fontawesome.com/e5bc08cd73.js"></script>
-
-    <!-- jqery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.3/jquery.min.js"></script>
-</head>
-<body>
-
-<?php //get info from mysql
 session_start();
 
 if (isset($_SESSION['surname'])) {
@@ -54,6 +33,34 @@ if (isset($_SESSION['user_set_password'])) {
 }
 
 ?>
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="inSource is a solution for bridging the communication gap between front-line workers and management by providing a platform to gather workplace issues and a tested Sprint process for rapidly developing solutions.">
+    <meta name="author" content="Seul, Jessica, Dhara, Jeff, Seyitan">
+    <title>inSource</title>
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="/css/myAccountStyle.css">
+
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600" rel="stylesheet">
+
+    <!-- font awesome -->
+    <script src="https://use.fontawesome.com/e5bc08cd73.js"></script>
+
+    <!-- jqery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.3/jquery.min.js"></script>
+</head>
+<body>
+
+
+
 
 <div class="my-ccount">
     <div class="txtfield">
@@ -95,18 +102,20 @@ if (isset($_SESSION['user_set_password'])) {
     <br>
 
     <?php
-    if ($occupation = 0) {
+    if ($occupation == 0) {
         $transop = "checked";
-    } else if ($occupation = 1) {
+    } elseif ($occupation == 1) {
         $superv = "checked";
-    } else if ($occupation = 2) {
+    } elseif ($occupation == 2) {
         $manager = "checked";
     }
+
     ?>
 
+    <!-- todo fix this css -->
     <div class="occup">
         <div class="occup-content">
-            <h3 class="h3-lb">Occupation*</h3>
+            <h3 class="h3-lb">Occupation</h3>
                 <div class="options">
                     <input type="radio" name="ma-occupation" id="transit-operator" class="occ-radio"
                            value="transit operator" <?php echo $transop; ?> disabled>
@@ -124,15 +133,18 @@ if (isset($_SESSION['user_set_password'])) {
     </div>
     <br>
 
+
     <?php
-    if ($preferredcomm = 0) {
+
+    if ($preferredcomm == 0) {
         $prefemail = "checked";
-    } else if ($preferredcomm = 1) {
+    } else if ($preferredcomm == 1) {
         $prefsms = "checked";
-    } else if ($preferredcomm = 2) {
+    } else if ($preferredcomm == 2) {
         $prefemail = "checked";
         $prefsms = "checked";
     }
+
     ?>
 
     <div class="notif">

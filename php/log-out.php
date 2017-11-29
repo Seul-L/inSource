@@ -2,7 +2,8 @@
 
 session_start();
 session_destroy();
-header("Location:") //todo add logout destination here
+header("Location: http://localhost");
+
 
 /**
  * Created by PhpStorm.

@@ -10,9 +10,10 @@
   <title>inSource</title>
 
   <!-- css -->
-  <link rel="stylesheet" href="http://localhost:8080/inSource/css/subpages.css">
-  <link rel="stylesheet" href="http://localhost:8080/inSource/css/dbrd_style.css">
-  <link rel="stylesheet" href="http://localhost:8080/inSource/css/master.css">
+  <link rel="stylesheet" href="/css/subpages.css">
+  <link rel="stylesheet" href="/css/master.css">
+  <link rel="stylesheet" href="/css/dbrd_style.css">
+
 
   <!-- font -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600" rel="stylesheet">
@@ -22,6 +23,8 @@
 
   <!-- jqery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.3/jquery.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
 </head>
 
 <body>
@@ -63,16 +66,12 @@
     <div class="subpage">
       <div id="div1" class="targetDiv">
         <section>
-          <?php
-            readfile("http://localhost:8080/inSource/html/submission.html");
-          ?>
+          <?php require("submission.php"); ?>
         </section>
       </div>
       <div id="div2" class="targetDiv">
         <section>
-          <?php
-            readfile("http://localhost:8080/inSource/html/vote.html");
-          ?>
+          <?php require("vote.php"); ?>
         </section>
       </div>
       <div id="div3" class="targetDiv">
@@ -151,10 +150,10 @@
       <div class="slideshow-container">
         <div class="mySlides">
           <div class="slide-content">
-            <a href="http://localhost:8080/inSource/html/Q3result.html">
+            <a href="/html/Q3result.html">
               <div class="card">
                 <div class="container">
-                  <img class="image" src="http://localhost:8080/inSource/assets/stickynotes.jpg" alt="results_1">
+                  <img class="image" src="/assets/stickynotes.jpg" alt="results_1">
                   <div class="card-title">
                     <h4>Q2 2017 Result</h4>
                     <p class="update-date">Last Updated: 2017/07/20</p>
@@ -170,10 +169,10 @@
               </div>
             </a>
 
-            <a href="http://localhost:8080/inSource/html/Q2result.html">
+            <a href="/html/Q2result.html">
               <div class="card">
                 <div class="container">
-                  <img class="image" src="http://localhost:8080/inSource/assets/stickynotes.jpg" alt="results_1">
+                  <img class="image" src="/assets/stickynotes.jpg" alt="results_1">
                   <div class="card-title">
                     <h4>Q1 2017 Result</h4>
                     <p class="update-date">Last Updated: 06/15/2017</p>
@@ -189,10 +188,10 @@
               </div>
             </a>
 
-            <a href="http://localhost:8080/inSource/html/Q1result.html">
+            <a href="/html/Q1result.html">
               <div class="card">
                 <div class="container">
-                  <img class="image" src="http://localhost:8080/inSource/assets/stickynotes.jpg" alt="results_1">
+                  <img class="image" src="/assets/stickynotes.jpg" alt="results_1">
                   <div class="card-title">
                     <h4>Q4 2016 Result</h4>
                     <p class="update-date">Last Updated: 12/15/2017</p>
@@ -215,7 +214,7 @@
             <a href="#">
               <div class="card">
                 <div class="container">
-                  <img class="image" src="http://localhost:8080/inSource/assets/stickynotes.jpg" alt="results_1">
+                  <img class="image" src="/assets/stickynotes.jpg" alt="results_1">
                   <div class="card-title">
                     <h4>Q3 2016 Result</h4>
                     <p class="update-date">Last Updated: 2016/08/10</p>
@@ -234,7 +233,7 @@
             <a href="#">
               <div class="card">
                 <div class="container">
-                  <img class="image" src="http://localhost:8080/inSource/assets/stickynotes.jpg" alt="results_1">
+                  <img class="image" src="/assets/stickynotes.jpg" alt="results_1">
                   <div class="card-title">
                     <h4>Q2 2016 Result</h4>
                     <p class="update-date">Last Updated: 2017/07/20</p>
@@ -253,7 +252,7 @@
             <a href="#">
               <div class="card">
                 <div class="container">
-                  <img class="image" src="http://localhost:8080/inSource/assets/stickynotes.jpg" alt="results_1">
+                  <img class="image" src="/assets/stickynotes.jpg" alt="results_1">
                   <div class="card-title">
                     <h4>Q1 2016 Result</h4>
                     <p class="update-date">Last Updated: 2017/07/20</p>
@@ -311,13 +310,8 @@
           for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
           }
-          for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-          }
           slides[slideIndex - 1].style.display = "block";
-          dots[slideIndex - 1].className += " active";
         }
-
       </script>
 </body>
 

@@ -6,5 +6,8 @@
  * Time: 12:02 PM
  */
 session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: http://letsinsourceit.com");
+}
 
-//todo build something that checks if a user is logged in using $_SESSION and then require it on each internal page
+?>
