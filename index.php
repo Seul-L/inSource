@@ -32,8 +32,8 @@
     <nav>
       <ul>
         <li><a href="?page=dashboard">Dashboard</a></li>
-        <li><a href="?page=myAccount">My Account</a></li>
-        <li><button href="?page=logout">Log out</button></li>
+        <li><a href="?page=my-account">My Account</a></li>
+          <li><a href="?page=log-out" class="button">Log out</a></li>
       </ul>
     </nav>
   </header>
