@@ -19,7 +19,6 @@ require "sign-in-check.php";
   <link rel="stylesheet" href="/css/master.css">
   <link rel="stylesheet" href="/css/dbrd_style.css">
 
-
   <!-- font -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600" rel="stylesheet">
 
@@ -42,8 +41,8 @@ require "sign-in-check.php";
          ?>
       </div>
 
-      <div class="btn"><a class="show" target="1" href="javascript:toggle();">Submit</a>
-      </div>
+      <a class="show" target="1" href="javascript:toggle();"><div class="btn">Submit</div></a>
+
       <div class="progress-bar">
         <div class="prg-percent" role="progressbar" style="width: 25%;">
         </div>
