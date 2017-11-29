@@ -20,5 +20,8 @@
     </orderEntry>
     <orderEntry type="library" name="e5bc08cd73" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="webfont" level="application" />
+    <orderEntry type="library" name="html5shiv" level="application" />
+    <orderEntry type="library" name="placeholders" level="application" />
   </component>
 </module>

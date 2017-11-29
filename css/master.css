@@ -116,7 +116,7 @@ nav ul {
   align-items: center;
 }
 
-button {
+.button {
   width: 96px;
   height: 40px;
   padding: 5px 15px;
@@ -130,7 +130,7 @@ button {
   font-weight: 600;
 }
 
-button:hover {
+.button:hover {
   border: 1.5px solid #fff;
   background: transparent;
   color: white;
