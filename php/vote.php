@@ -6,7 +6,7 @@
 <div id="vote_success">
   <p>Topics have been formed around the issues submitted during the submission period. Members are invited to vote on the particular issues they want addressed at the upcoming Sprint Workshop.</p>
 </div>
-  <form action="php/vote_received.php" method="post" target="" id="vote-submit">
+  <form action="/php/vote_received.php" method="post" target="" id="vote-submit">
     <!-- <fieldset> -->
     <input type="hidden" name="recieved-date" id="todayDate" />
 
@@ -63,7 +63,7 @@
 
       posting.done(function(data) {
         /* Put the results in a div */
-        $("#vote_success").html('<h2>THANK YOU!</h2><p>Thank you for your voting. Meeting invitations will be send out on December 7th, 2017. <br> You selected $N vote(s): <br> <?php echo $var1; ?>');
+        $("#vote_success").html('<h2>THANK YOU!</h2><p>Thank you for your voting. Meeting invitations will be send out on December 7th, 2017.');
         /* Hide form */
         $form.hide();
       });

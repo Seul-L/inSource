@@ -62,7 +62,7 @@ if (isset($_SESSION['user_set_password'])) {
 
 
 
-<div class="my-ccount">
+<div class="my-account">
     <div class="txtfield">
         <h2>My Account</h2>
         <form method="POST" action="/php/connectivity.php">
@@ -95,8 +95,8 @@ if (isset($_SESSION['user_set_password'])) {
 
             <div class="fieldBlockTop">
                 <label for="user-phone-number">Cell Phone Number</label>
-                <input type="text" name="ma-phone-number" size="40" value="<?php echo($phonenumber); ?>"
-                       id="user-phone-number" class="fieldBlock">
+                <input type="tel" name="ma-phone-number" size="40" placeholder="555-555-5555" maxlength="12"
+                       value="<?php echo(substr($phonenumber, 0, 3).'-'.substr($phonenumber, 3, 3).'-'.substr($phonenumber, 6)); ?>" id="user-phone-number" class="fieldBlock">
             </div>
     </div>
     <br>
@@ -165,6 +165,8 @@ if (isset($_SESSION['user_set_password'])) {
         <input id="reset-button" type="submit" name="ma-reset" value="Reset" class="ma-reset-btn">
     </div>
     </form>
+</div>
+
 
     <div class="chng-pw">
         <h2>Change Password</h2>
@@ -174,17 +176,17 @@ if (isset($_SESSION['user_set_password'])) {
             <form method="POST" action="/php/connectivity.php">
                 <div class="fieldBlockTop">
                     <label for="curr-pw">Current Password</label>
-                    <input type="password" name="current-password" size="40" id="curr-pw" class="fieldBlock">
+                    <input type="password" name="current-password" size="40" id="curr-pw" class="fieldBlock" required="">
                 </div>
 
                 <div class="fieldBlockTop">
                     <label for="new-pw">New Password</label>
-                    <input type="password" name="new-password" size="40" id="new-pw" class="fieldBlock">
+                    <input type="password" name="new-password" size="40" id="new-pw" class="fieldBlock" required="">
                 </div>
 
                 <div class="fieldBlockTop">
                     <label for="rpt-new-pw">Repeat New Password</label>
-                    <input type="password" name="repeat-new-password" size="40" id="rpt-new-pw" class="fieldBlock">
+                    <input type="password" name="repeat-new-password" size="40" id="rpt-new-pw" class="fieldBlock" required="">
                 </div>
 
                 <div class="buttons">
