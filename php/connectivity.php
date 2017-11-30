@@ -3,8 +3,6 @@ session_start(); //starting session
 
 
 
-
-
 //connect to mysql
 $conn = mysqli_connect($servername, $username, $password, $database);
 
@@ -35,7 +33,7 @@ function signIn($sqlserver, $si_username, $si_password)
 
                 <script type="text/javascript">
                     alert('Wrong Username or Password');
-                    window.location.href = "/html/sign-in.html";
+                    window.location.href = "/sign-in.html";
                 </script>
 
 <?php
@@ -51,7 +49,7 @@ function signIn($sqlserver, $si_username, $si_password)
 
                 <script type="text/javascript">
                     alert('Wrong Username or Password');
-                    window.location.href = "/html/sign-in.html";
+                    window.location.href = "/sign-in.html";
                 </script>
 
 <?php
@@ -118,6 +116,7 @@ function infoChange($sqlserver, $si_username, $ph_number, $comm_method){
     $row = mysqli_fetch_array($query);
 
     if ($row['phone_number'] != $ph_number) { //update phone number
+        $ph_number = preg_replace("/[^0-9]/", "", $ph_number);
         mysqli_query($sqlserver, "UPDATE users SET phone_number = '$ph_number' WHERE username = '$si_username'");
     }
 
@@ -134,8 +133,7 @@ function infoChange($sqlserver, $si_username, $ph_number, $comm_method){
 }
 
 
-function commFind($contactForm, $ph_number)
-{
+function commFind($contactForm, $ph_number) {
     if (!empty($ph_number)) {
         if (!is_null($contactForm)) {
             if (in_array("email", $contactForm)) {

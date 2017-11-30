@@ -6,7 +6,7 @@
 <div id="vote_success">
   <p>Topics have been formed around the issues submitted during the submission period. Members are invited to vote on the particular issues they want addressed at the upcoming Sprint Workshop.</p>
 </div>
-  <form action="php/vote_received.php" method="post" target="" id="vote-submit">
+  <form action="/php/vote_received.php" method="post" target="" id="vote-submit">
     <!-- <fieldset> -->
     <input type="hidden" name="recieved-date" id="todayDate" />
 
