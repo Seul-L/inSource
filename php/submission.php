@@ -16,7 +16,7 @@
   </div>
 
   <div id="form_wrapper">
-    <form id="txt-submits" action="php/submit_recieved.php" method="post" target="">
+    <form id="txt-submits" action="/php/submit_recieved.php" method="post" target="">
       <input type="hidden" name="recieved-date" id="todayDate" />
       <input type="hidden" name="user-occup" id="user-occup" value="occup" />
       <textarea type="text" name="submission" maxlength="600" placeholder="Please write here..." class="form-submission" required></textarea>
