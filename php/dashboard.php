@@ -279,44 +279,43 @@ require "sign-in-check.php";
       </div>
     </div>
 </div>
-      <script>
-        // progress bar
+<script>
+  // progress bar
 
+  // toggle hidden divs
+  $('.targetDiv').hide();
+  $('.show').click(function() {
+    $('#div' + $(this).attr('target')).slideToggle('').siblings('.targetDiv').hide('');
+  });
 
-        // toggle hidden divs
-        $('.targetDiv').hide();
-        $('.show').click(function() {
-          $('#div' + $(this).attr('target')).slideToggle('').siblings('.targetDiv').hide('');
-        });
+  // slide results
+  var slideIndex = 1;
+  showSlides(slideIndex);
 
-        // slide results
-        var slideIndex = 1;
-        showSlides(slideIndex);
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
 
-        function plusSlides(n) {
-          showSlides(slideIndex += n);
-        }
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
 
-        function currentSlide(n) {
-          showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-          var i;
-          var slides = document.getElementsByClassName("mySlides");
-          var dots = document.getElementsByClassName("dot");
-          if (n > slides.length) {
-            slideIndex = 1
-          }
-          if (n < 1) {
-            slideIndex = slides.length
-          }
-          for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-          }
-          slides[slideIndex - 1].style.display = "block";
-        }
-      </script>
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {
+      slideIndex = 1
+    }
+    if (n < 1) {
+      slideIndex = slides.length
+    }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slides[slideIndex - 1].style.display = "block";
+  }
+</script>
 </body>
 
 </html>
