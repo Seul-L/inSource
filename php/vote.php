@@ -63,7 +63,7 @@
 
       posting.done(function(data) {
         /* Put the results in a div */
-        $("#vote_success").html('<h2>THANK YOU!</h2><p>Thank you for your voting. Meeting invitations will be send out on December 7th, 2017. <br> You selected $N vote(s): <br> <?php echo $var1; ?>');
+        $("#vote_success").html('<h2>THANK YOU!</h2><p>Thank you for your voting. Meeting invitations will be send out on December 7th, 2017.');
         /* Hide form */
         $form.hide();
       });

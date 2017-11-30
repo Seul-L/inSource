@@ -155,7 +155,7 @@ require "sign-in-check.php";
       <div class="slideshow-container">
         <div class="mySlides">
           <div class="slide-content">
-            <a href="/Q3result.html">
+            <a href="/html/Q3result.html">
               <div class="card">
                 <div class="container">
                   <img class="image" src="/assets/stickynotes.jpg" alt="results_1">
@@ -174,7 +174,7 @@ require "sign-in-check.php";
               </div>
             </a>
 
-            <a href="/Q2result.html">
+            <a href="/html/Q2result.html">
               <div class="card">
                 <div class="container">
                   <img class="image" src="/assets/stickynotes.jpg" alt="results_1">
@@ -193,7 +193,7 @@ require "sign-in-check.php";
               </div>
             </a>
 
-            <a href="/Q1result.html">
+            <a href="/html/Q1result.html">
               <div class="card">
                 <div class="container">
                   <img class="image" src="/assets/stickynotes.jpg" alt="results_1">
