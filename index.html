@@ -88,20 +88,20 @@
     </div>
     <div class="w-container">
         <div class="form-block w-form">
-            <form method="POST" action="connectivity.php" id="email-form">
+            <form method="POST" action="/php/connectivity.php" id="email-form">
                 <label class="field-label-2">Name:</label>
-                <input type="text" class="form-style text-field w-input" maxlength="256" name="name" data-name="Name" placeholder="Enter your name" id="name" required="">
+                <input type="text" class="form-style text-field w-input" maxlength="256" name="cf-name" data-name="Name" placeholder="Enter your name" id="name" required="">
 
                 <label class="field-label">Organization:</label>
-                <input type="text" class="text-field-2 w-input" maxlength="256" name="organization" data-name="organization" id="organization" required="">
+                <input type="text" class="text-field-2 w-input" maxlength="256" name="cf-organization" data-name="organization" id="organization" required="">
 
                 <label class="field-label">Email Address:</label>
-                <input type="email" class="text-field-3 w-input" maxlength="256" name="email" data-name="email" placeholder="name@organization.com" id="email" required="">
+                <input type="email" class="text-field-3 w-input" maxlength="256" name="cf-email" data-name="email" placeholder="name@organization.com" id="email" required="">
 
                 <label class="field-label">Message:</label>
-                <textarea id="field" name="field" maxlength="5000" class="textarea w-input"></textarea>
+                <textarea id="field" name="cf-message" maxlength="5000" class="textarea w-input"></textarea>
 
-                <input type="submit" value="Submit" data-wait="Please wait..." class="w-button">
+                <input type="submit" value="Submit" data-wait="Please wait..." class="w-button" name="contact-form-submit">
             </form>
             <div class="w-form-done">
                 <div>Thank you! Your submission has been received!</div>

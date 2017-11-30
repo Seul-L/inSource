@@ -10,10 +10,28 @@ $conn = mysqli_connect($servername, $username, $password, $database);
 if (mysqli_connect_error()) {
     die("Connection failed: " . $conn->connect_error);
 }
+/* index.html */
+//contact form submission
+function contactForm($sqlserver, $contactname, $contactorg, $contactemail, $contactmessage) {
+    $contactname = mysqli_real_escape_string($sqlserver, $contactname);
+    $contactorg = mysqli_real_escape_string($sqlserver, $contactorg);
+    $contactemail = mysqli_real_escape_string($sqlserver, $contactemail);
+    $contactmessage = mysqli_real_escape_string($sqlserver, $contactmessage);
+    mysqli_query($sqlserver, "INSERT INTO contact_us (name, organization, email, message) VALUES ('$contactname', '$contactorg', '$contactemail', '$contactmessage')");
+}
+
+//contact form submit button
+if(isset($_POST['contact-form-submit'])) {
+    $name = $_POST['cf-name'];
+    $org = $_POST['cf-organization'];
+    $email = $_POST['cf-email'];
+    $message = $_POST['cf-message'];
+    contactForm($conn, $name, $org, $email, $message);
+    header("Location: /index.html");
+}
 
 /* login page */
-function signIn($sqlserver, $si_username, $si_password)
-{ //sign in function
+function signIn($sqlserver, $si_username, $si_password) { //sign in function
     if (!empty($si_username)) { //check username field has value
         $query = mysqli_query($sqlserver, "SELECT * FROM users WHERE username = '$si_username'");
         $row = mysqli_fetch_array($query);
@@ -33,7 +51,7 @@ function signIn($sqlserver, $si_username, $si_password)
 
                 <script type="text/javascript">
                     alert('Wrong Username or Password');
-                    window.location.href = "/sign-in.html";
+                    window.location.href = "/html/sign-in.html";
                 </script>
 
 <?php
@@ -49,7 +67,7 @@ function signIn($sqlserver, $si_username, $si_password)
 
                 <script type="text/javascript">
                     alert('Wrong Username or Password');
-                    window.location.href = "/sign-in.html";
+                    window.location.href = "/html/sign-in.html";
                 </script>
 
 <?php
@@ -190,4 +208,5 @@ function myAccountReset() {
     header("LOCATION: /index.php?page=my-account");
 }
 
+mysqli_close($conn);
 ?>
