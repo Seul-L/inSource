@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ad4546d-eb21-4b8b-80db-be907f0448fa" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/html/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/Q2result.html" afterPath="$PROJECT_DIR$/html/Q2result.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/Q3result.html" afterPath="$PROJECT_DIR$/html/Q3result.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/sign-in.html" afterPath="$PROJECT_DIR$/html/sign-in.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/what-we-do.html" afterPath="$PROJECT_DIR$/html/what-we-do.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/connectivity.php" afterPath="$PROJECT_DIR$/php/connectivity.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/dashboard.php" afterPath="$PROJECT_DIR$/php/dashboard.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/log-out.php" afterPath="$PROJECT_DIR$/php/log-out.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/my-account.php" afterPath="$PROJECT_DIR$/php/my-account.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/sign-in-check.php" afterPath="$PROJECT_DIR$/php/sign-in-check.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/vote.php" afterPath="$PROJECT_DIR$/php/vote.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="inSource.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -67,10 +57,10 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="127" column="39" lean-forward="true" selection-start-line="127" selection-start-column="39" selection-end-line="127" selection-end-column="39" />
+            <state relative-caret-position="325">
+              <caret line="116" column="52" lean-forward="false" selection-start-line="116" selection-start-column="52" selection-end-line="116" selection-end-column="52" />
               <folding>
-                <marker date="1512011002772" expanded="true" signature="1667:1711" ph="..." />
+                <marker date="1512014392390" expanded="true" signature="1667:1711" ph="..." />
               </folding>
             </state>
           </provider>
@@ -191,6 +181,7 @@
       <find>/images/</find>
       <find>form</find>
       <find>/html/</find>
+      <find>&lt;form</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -221,9 +212,9 @@
         <option value="$PROJECT_DIR$/php/sign-in-check.php" />
         <option value="$PROJECT_DIR$/html/what-we-do.html" />
         <option value="$PROJECT_DIR$/html/index.html" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/php/my-account.php" />
         <option value="$PROJECT_DIR$/php/connectivity.php" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -446,12 +437,12 @@
       <workItem from="1511486017464" duration="10088000" />
       <workItem from="1511567506878" duration="15667000" />
       <workItem from="1511714794439" duration="47402000" />
-      <workItem from="1511902617290" duration="23400000" />
+      <workItem from="1511902617290" duration="25863000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155626000" />
+    <option name="totallyTimeSpent" value="158089000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -787,16 +778,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="127" column="39" lean-forward="true" selection-start-line="127" selection-start-column="39" selection-end-line="127" selection-end-column="39" />
-          <folding>
-            <marker date="1512011002772" expanded="true" signature="1667:1711" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/my-account.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -818,6 +799,16 @@
         <state relative-caret-position="435">
           <caret line="29" column="9" lean-forward="true" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="116" column="52" lean-forward="false" selection-start-line="116" selection-start-column="52" selection-end-line="116" selection-end-column="52" />
+          <folding>
+            <marker date="1512014392390" expanded="true" signature="1667:1711" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
