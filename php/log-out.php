@@ -2,7 +2,7 @@
 
 session_start();
 session_destroy();
-header("Location: http://localhost");
+header("Location: http://letsinsourceit.com");
 
 
 /**
