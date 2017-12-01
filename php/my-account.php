@@ -112,7 +112,6 @@ if (isset($_SESSION['user_set_password'])) {
 
     ?>
 
-    <!-- todo fix this css -->
     <div class="occup">
         <div class="occup-content">
             <h3 class="h3-lb">Occupation</h3>

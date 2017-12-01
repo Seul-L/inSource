@@ -103,7 +103,7 @@ function passChange($sqlserver, $si_username, $current_password, $new_password, 
     $row = mysqli_fetch_array($query);
 
     if (password_verify($current_password, $row['password'])) {
-        if(strlen($new_password) >= 8) {
+        if (strlen($new_password) >= 8) {
             if (password_verify($rep_new_password, $new_password)) {
                 mysqli_query($sqlserver, "UPDATE users SET password = '$new_password' WHERE username = '$si_username'");
                 session_unset();
@@ -118,20 +118,47 @@ function passChange($sqlserver, $si_username, $current_password, $new_password, 
                         window.location.href = "/index.php?page=my-account";
                     </script>
 
-<?php
+                    <?php
 
                 } else {
-                    echo "SOMETHING WENT WRONG";
-                    //todo add redirect here to...?
+                    ?>
+
+                    <script type="text/javascript">
+                        alert('Something went wrong.');
+                        window.location.href = "/index.php?page=my-account";
+                    </script>
+
+                    <?php
                 }
             }
         } else {
-            echo "PASSWORD NEEDS TO BE 8 CHARACTERS LONG";
-            //todo make this a dialog box
+            ?>
+
+            <script type="text/javascript">
+                alert('Password must be 8 characters long.');
+                window.location.href = "/index.php?page=my-account";
+            </script>
+
+            <?php
         }
     } else {
-        echo "PASSWORD MISMATHC";
+        ?>
+
+        <script type="text/javascript">
+            alert('Password mismatch');
+            window.location.href = "/index.php?page=my-account";
+        </script>
+
+        <?php
     }
+    ?>
+
+    <script type="text/javascript">
+        alert('Password successfully changed.');
+        window.location.href = "/index.php?page=my-account";
+    </script>
+
+    <?php
 }
 
 //account info update
@@ -180,11 +207,25 @@ function commFind($contactForm, $ph_number) {
         if (in_array("email", $contactForm)) {
             if (in_array("sms", $contactForm)) {
                 return 0;
-                //todo inform user that cell # is needed
+                ?>
+
+                <script type="text/javascript">
+                    alert('A cell phone number is required.');
+                    window.location.href = "/index.php?page=my-account";
+                </script>
+
+                <?php
             }
         } elseif (in_array("sms", $contactForm)) {
             return 0;
-            //todo inform user that cell # is needed
+            ?>
+
+            <script type="text/javascript">
+                alert('A cell phone number is required.');
+                window.location.href = "/index.php?page=my-account";
+            </script>
+
+            <?php
         }
     } else {
         return 0;
@@ -194,12 +235,7 @@ function commFind($contactForm, $ph_number) {
 
 //account page buttons
 if (isset($_POST['pass-reset-submit'])) { //password change
-    if (strlen($_POST['repeat-new-password']) > 7) {
-        passChange($conn, $_SESSION['username'], $_POST['current-password'], password_hash($_POST['new-password'], PASSWORD_DEFAULT), $_POST['repeat-new-password']);
-        //todo confirm password update
-    } else {
-        header("Location: /index.php?page=my-account");
-        //todo let user know password needs to be 8 chars
+    passChange($conn, $_SESSION['username'], $_POST['current-password'], password_hash($_POST['new-password'], PASSWORD_DEFAULT), $_POST['repeat-new-password']);
     }
 } elseif (isset($_POST['pass-reset-cancel'])) { //password change cancel
     myAccountReset();
