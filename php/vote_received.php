@@ -1,4 +1,4 @@
-<!-- <section> -->
+<section>
 
   <?php
 
@@ -31,4 +31,4 @@
   }
   ?>
 
-<!-- </section> -->
+</section>

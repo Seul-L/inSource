@@ -54,8 +54,7 @@ function signIn($sqlserver, $si_username, $si_password) { //sign in function
                     window.location.href = "/html/sign-in.html";
                 </script>
 
-<?php
-                //header("Location: /html/sign-in.html");
+                <?php
             }
         } else {
             if (password_verify($si_password, $row['password'])) {
@@ -70,9 +69,18 @@ function signIn($sqlserver, $si_username, $si_password) { //sign in function
                     window.location.href = "/html/sign-in.html";
                 </script>
 
-<?php
+                <?php
             }
         }
+    } else {
+        ?>
+
+        <script type="text/javascript">
+            alert('Wrong Username or Password');
+            window.location.href = "/html/sign-in.html";
+        </script>
+
+        <?php
     }
 }
 
