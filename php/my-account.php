@@ -95,7 +95,7 @@ if (isset($_SESSION['user_set_password'])) {
 
             <div class="fieldBlockTop">
                 <label for="user-phone-number">Cell Phone Number</label>
-                <input type="tel" name="ma-phone-number" size="40" placeholder="555-555-5555" maxlength="12"
+                <input type="tel" name="ma-phone-number" size="40" maxlength="12" placeholder="555-555-5555"
                        value="<?php echo(substr($phonenumber, 0, 3).'-'.substr($phonenumber, 3, 3).'-'.substr($phonenumber, 6)); ?>" id="user-phone-number" class="fieldBlock">
             </div>
     </div>

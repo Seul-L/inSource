@@ -84,7 +84,7 @@ function signIn($sqlserver, $si_username, $si_password) { //sign in function
     }
 }
 
-
+//login button
 if (isset($_POST['password-submit'])) { //login page password submission
     $username = mysqli_real_escape_string($conn, $_POST['user']);
     $password = mysqli_real_escape_string($conn, $_POST['pass']);
@@ -103,7 +103,7 @@ function passChange($sqlserver, $si_username, $current_password, $new_password, 
     $row = mysqli_fetch_array($query);
 
     if (password_verify($current_password, $row['password'])) {
-        if (strlen($new_password) >= 8) {
+        if (strlen($rep_new_password) >= 8) {
             if (password_verify($rep_new_password, $new_password)) {
                 mysqli_query($sqlserver, "UPDATE users SET password = '$new_password' WHERE username = '$si_username'");
                 session_unset();
@@ -130,6 +130,15 @@ function passChange($sqlserver, $si_username, $current_password, $new_password, 
 
                     <?php
                 }
+            } else {
+                ?>
+
+                <script type="text/javascript">
+                    alert('Password mismatch');
+                    window.location.href = "/index.php?page=my-account";
+                </script>
+
+                <?php
             }
         } else {
             ?>
@@ -187,7 +196,7 @@ function infoChange($sqlserver, $si_username, $ph_number, $comm_method){
 
 
 function commFind($contactForm, $ph_number) {
-    if (!empty($ph_number)) {
+    if (strlen($ph_number) >= 10) {
         if (!is_null($contactForm)) {
             if (in_array("email", $contactForm)) {
                 if (in_array("sms", $contactForm)) {
@@ -207,50 +216,33 @@ function commFind($contactForm, $ph_number) {
         if (in_array("email", $contactForm)) {
             if (in_array("sms", $contactForm)) {
                 return 0;
-                ?>
-
-                <script type="text/javascript">
-                    alert('A cell phone number is required.');
-                    window.location.href = "/index.php?page=my-account";
-                </script>
-
-                <?php
             }
         } elseif (in_array("sms", $contactForm)) {
             return 0;
-            ?>
-
-            <script type="text/javascript">
-                alert('A cell phone number is required.');
-                window.location.href = "/index.php?page=my-account";
-            </script>
-
-            <?php
         }
     } else {
         return 0;
     }
 }
 
+//reset buttons
+function myAccountReset() {
+    header("LOCATION: /index.php?page=my-account");
+}
 
 //account page buttons
 if (isset($_POST['pass-reset-submit'])) { //password change
     passChange($conn, $_SESSION['username'], $_POST['current-password'], password_hash($_POST['new-password'], PASSWORD_DEFAULT), $_POST['repeat-new-password']);
-    }
 } elseif (isset($_POST['pass-reset-cancel'])) { //password change cancel
     myAccountReset();
 } elseif (isset($_POST['ma-submit'])) { //account info change
     $commType = commFind($_POST['comm-method'], $_POST['ma-phone-number']);
-    echo "commtype: " . $commType;
     infoChange($conn, $_SESSION['username'], $_POST['ma-phone-number'], $commType);
 } elseif (isset($_POST['ma-reset'])) { //account info change cancel
     myAccountReset();
 }
 
-//reset buttons
-function myAccountReset() {
-    header("LOCATION: /index.php?page=my-account");
-}
+
 
 mysqli_close($conn);
 ?>
