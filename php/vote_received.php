@@ -1,8 +1,10 @@
-<!-- <section> -->
+<section>
 
   <?php
 
 
+
+  session_start();
 
   if(isset($_POST['vote-submit'])) {
     $voteArray=$_POST['voting'];
@@ -31,4 +33,4 @@
   }
   ?>
 
-<!-- </section> -->
+</section>

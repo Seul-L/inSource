@@ -2,7 +2,7 @@
 
   <?php
 
-  session_start();
+
 
   $conn = mysqli_connect($servername, $username, $password, $database);
   $submission = $_POST['submission'];

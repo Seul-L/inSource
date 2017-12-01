@@ -54,8 +54,7 @@ function signIn($sqlserver, $si_username, $si_password) { //sign in function
                     window.location.href = "/html/sign-in.html";
                 </script>
 
-<?php
-                //header("Location: /html/sign-in.html");
+                <?php
             }
         } else {
             if (password_verify($si_password, $row['password'])) {
@@ -70,13 +69,22 @@ function signIn($sqlserver, $si_username, $si_password) { //sign in function
                     window.location.href = "/html/sign-in.html";
                 </script>
 
-<?php
+                <?php
             }
         }
+    } else {
+        ?>
+
+        <script type="text/javascript">
+            alert('Wrong Username or Password');
+            window.location.href = "/html/sign-in.html";
+        </script>
+
+        <?php
     }
 }
 
-
+//login button
 if (isset($_POST['password-submit'])) { //login page password submission
     $username = mysqli_real_escape_string($conn, $_POST['user']);
     $password = mysqli_real_escape_string($conn, $_POST['pass']);
@@ -95,7 +103,7 @@ function passChange($sqlserver, $si_username, $current_password, $new_password, 
     $row = mysqli_fetch_array($query);
 
     if (password_verify($current_password, $row['password'])) {
-        if(strlen($new_password) >= 8) {
+        if (strlen($rep_new_password) >= 8) {
             if (password_verify($rep_new_password, $new_password)) {
                 mysqli_query($sqlserver, "UPDATE users SET password = '$new_password' WHERE username = '$si_username'");
                 session_unset();
@@ -110,20 +118,56 @@ function passChange($sqlserver, $si_username, $current_password, $new_password, 
                         window.location.href = "/index.php?page=my-account";
                     </script>
 
-<?php
+                    <?php
 
                 } else {
-                    echo "SOMETHING WENT WRONG";
-                    //todo add redirect here to...?
+                    ?>
+
+                    <script type="text/javascript">
+                        alert('Something went wrong.');
+                        window.location.href = "/index.php?page=my-account";
+                    </script>
+
+                    <?php
                 }
+            } else {
+                ?>
+
+                <script type="text/javascript">
+                    alert('Password mismatch');
+                    window.location.href = "/index.php?page=my-account";
+                </script>
+
+                <?php
             }
         } else {
-            echo "PASSWORD NEEDS TO BE 8 CHARACTERS LONG";
-            //todo make this a dialog box
+            ?>
+
+            <script type="text/javascript">
+                alert('Password must be 8 characters long.');
+                window.location.href = "/index.php?page=my-account";
+            </script>
+
+            <?php
         }
     } else {
-        echo "PASSWORD MISMATHC";
+        ?>
+
+        <script type="text/javascript">
+            alert('Password mismatch');
+            window.location.href = "/index.php?page=my-account";
+        </script>
+
+        <?php
     }
+    ?>
+
+    <script type="text/javascript">
+        alert('Password successfully changed.');
+        window.location.href = "/index.php?page=my-account";
+    </script>
+
+    <?php
 }
 
 //account info update
@@ -152,7 +196,7 @@ function infoChange($sqlserver, $si_username, $ph_number, $comm_method){
 
 
 function commFind($contactForm, $ph_number) {
-    if (!empty($ph_number)) {
+    if (strlen($ph_number) >= 10) {
         if (!is_null($contactForm)) {
             if (in_array("email", $contactForm)) {
                 if (in_array("sms", $contactForm)) {
@@ -172,41 +216,33 @@ function commFind($contactForm, $ph_number) {
         if (in_array("email", $contactForm)) {
             if (in_array("sms", $contactForm)) {
                 return 0;
-                //todo inform user that cell # is needed
             }
         } elseif (in_array("sms", $contactForm)) {
             return 0;
-            //todo inform user that cell # is needed
         }
     } else {
         return 0;
     }
 }
 
+//reset buttons
+function myAccountReset() {
+    header("LOCATION: /index.php?page=my-account");
+}
 
 //account page buttons
 if (isset($_POST['pass-reset-submit'])) { //password change
-    if (strlen($_POST['repeat-new-password']) > 7) {
-        passChange($conn, $_SESSION['username'], $_POST['current-password'], password_hash($_POST['new-password'], PASSWORD_DEFAULT), $_POST['repeat-new-password']);
-        //todo confirm password update
-    } else {
-        header("Location: /index.php?page=my-account");
-        //todo let user know password needs to be 8 chars
-    }
+    passChange($conn, $_SESSION['username'], $_POST['current-password'], password_hash($_POST['new-password'], PASSWORD_DEFAULT), $_POST['repeat-new-password']);
 } elseif (isset($_POST['pass-reset-cancel'])) { //password change cancel
     myAccountReset();
 } elseif (isset($_POST['ma-submit'])) { //account info change
     $commType = commFind($_POST['comm-method'], $_POST['ma-phone-number']);
-    echo "commtype: " . $commType;
     infoChange($conn, $_SESSION['username'], $_POST['ma-phone-number'], $commType);
 } elseif (isset($_POST['ma-reset'])) { //account info change cancel
     myAccountReset();
 }
 
-//reset buttons
-function myAccountReset() {
-    header("LOCATION: /index.php?page=my-account");
-}
+
 
 mysqli_close($conn);
 ?>
