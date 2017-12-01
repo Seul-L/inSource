@@ -4,6 +4,8 @@
 
 
 
+  session_start();
+
   if(isset($_POST['vote-submit'])) {
     $voteArray=$_POST['voting'];
     $conn = mysqli_connect($servername, $username, $password, $database);
