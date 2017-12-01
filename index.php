@@ -55,7 +55,7 @@
 
   <footer>
     <div class="footer-content">
-      <p><i class="fa fa-copyright" aria-hidden="true"></i> 2017
+      <p id="footertxt"><i class="fa fa-copyright" aria-hidden="true"></i> 2017
       <img class="footer-logo" src="/assets/logo_inSource.png" alt="inSource logo"></p>
     </div>
   </footer>
