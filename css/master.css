@@ -116,10 +116,10 @@ nav ul {
   align-items: center;
 }
 
-button {
+.button {
   width: 96px;
   height: 40px;
-  padding: 5px 15px;
+  padding: 8px 15px;
   border-radius: 25px;
   text-align: center;
   margin: 15px 0;
@@ -130,8 +130,9 @@ button {
   font-weight: 600;
 }
 
-button:hover {
+.button:hover {
   border: 1.5px solid #fff;
+  padding: 6px 15px;
   background: transparent;
   color: white;
   cursor: pointer;
@@ -143,15 +144,22 @@ footer {
   height: 50px;
   width: 100%;
   bottom: 0;
+  left: 0;
+  right: 0;
   background-color: #F2F2F2;
   position: static;
 }
 
 .footer-content {
   display: inline-block;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
   text-align: center;
+}
+
+#footertxt {
+  margin-top: 10px;
 }
 
 .footer-logo {

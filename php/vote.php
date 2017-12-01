@@ -1,16 +1,20 @@
+<?php
+    session_start();
+?>
+
 <!-- vote phase -->
 <section class="vote">
   <h2>VOTING NOW OPEN</h2>
   <h3 class="red">2 days left to vote for a topic for Q3</h3>
   <h3 class="red">Voting open till November 30th 2017 11:59 PM (EST)</h3>
-
+<div id="vote_success">
   <p>Topics have been formed around the issues submitted during the submission period. Members are invited to vote on the particular issues they want addressed at the upcoming Sprint Workshop.</p>
+</div>
+  <form action="/php/vote_received.php" method="post" target="" id="vote-submit">
 
-  <form action="php/vote_received.php" method="post" target="" id="vote-submit">
-    <!-- <fieldset> -->
     <input type="hidden" name="recieved-date" id="todayDate" />
 
-    <input type="hidden" name="user-occup" id="user-occup" value="occup" />
+    <input type="hidden" name="user-occup" id="user-occup" value="<?php $_SESSION['occupation']; ?>" />
 
     <input type="checkbox" name="voting[]" value="How might we improve driver facilities such as lunch rooms or break rooms?" id="voting_1">
     <label for="voting_1">How might we improve driver facilities such as lunch rooms or break rooms?</label>
@@ -23,9 +27,9 @@
 
     <input type="checkbox" name="voting[]" value="How might we enhance the passenger conflict management system?" id="voting_4">
     <label for="voting_4">How might we enhance the passenger conflict management system?</label>
-    <!-- </fieldset> -->
+
     <br><br>
-    <input type="submit" name="votes" value="Submit" class="btn align-right">
+    <input type="submit" name="submit" value="Submit" class="btn align-right">
 
   </form>
 
@@ -56,14 +60,14 @@
       /* get some values from elements on the page: */
       var $form = $(this),
         $submit = $form.find('button[type="submit"]'),
-        message_value = $form.find('textarea[name="submission"]').val(),
+        message_value = $form.find('checkbox[name="voting[]"]').val(),
         url = $form.attr('action');
 
       var posting = $.post(url, { submission : message_value});
 
       posting.done(function(data) {
         /* Put the results in a div */
-        $("#form_success").html('<h2>THANK YOU!</h2><p>Thank you for your voting. Meeting invitations will be send out on December 7th, 2017. <br> You selected $N vote(s): <br> <?php echo $var1; ?>');
+        $("#vote_success").html('<h2>THANK YOU!</h2><p>Thank you for your voting. Meeting invitations will be send out on December 7th, 2017.');
         /* Hide form */
         $form.hide();
       });

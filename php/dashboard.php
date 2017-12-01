@@ -1,3 +1,8 @@
+<?php
+
+require "sign-in-check.php";
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -10,9 +15,9 @@
   <title>inSource</title>
 
   <!-- css -->
-  <link rel="stylesheet" href="http://localhost:8080/inSource/css/subpages.css">
-  <link rel="stylesheet" href="http://localhost:8080/inSource/css/dbrd_style.css">
-  <link rel="stylesheet" href="http://localhost:8080/inSource/css/master.css">
+  <link rel="stylesheet" href="/css/subpages.css">
+  <link rel="stylesheet" href="/css/master.css">
+  <link rel="stylesheet" href="/css/dbrd_style.css">
 
   <!-- font -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600" rel="stylesheet">
@@ -36,8 +41,8 @@
          ?>
       </div>
 
-      <div class="btn"><a class="show" target="1" href="javascript:toggle();">Submit</a>
-      </div>
+      <a class="show" target="1" href="javascript:toggle();"><div class="btn">Submit</div></a>
+
       <div class="progress-bar">
         <div class="prg-percent" role="progressbar" style="width: 25%;">
         </div>
@@ -149,10 +154,10 @@
       <div class="slideshow-container">
         <div class="mySlides">
           <div class="slide-content">
-            <a href="http://localhost:8080/inSource/html/Q3result.html">
+            <a href="/html/Q3result.html">
               <div class="card">
                 <div class="container">
-                  <img class="image" src="http://localhost:8080/inSource/assets/stickynotes.jpg" alt="results_1">
+                  <img class="image" src="/assets/stickynotes.jpg" alt="results_1">
                   <div class="card-title">
                     <h4>Q2 2017 Result</h4>
                     <p class="update-date">Last Updated: 2017/07/20</p>
@@ -168,10 +173,10 @@
               </div>
             </a>
 
-            <a href="http://localhost:8080/inSource/html/Q2result.html">
+            <a href="/html/Q2result.html">
               <div class="card">
                 <div class="container">
-                  <img class="image" src="http://localhost:8080/inSource/assets/stickynotes.jpg" alt="results_1">
+                  <img class="image" src="/assets/stickynotes.jpg" alt="results_1">
                   <div class="card-title">
                     <h4>Q1 2017 Result</h4>
                     <p class="update-date">Last Updated: 06/15/2017</p>
@@ -187,10 +192,10 @@
               </div>
             </a>
 
-            <a href="http://localhost:8080/inSource/html/Q1result.html">
+            <a href="/html/Q1result.html">
               <div class="card">
                 <div class="container">
-                  <img class="image" src="http://localhost:8080/inSource/assets/stickynotes.jpg" alt="results_1">
+                  <img class="image" src="/assets/stickynotes.jpg" alt="results_1">
                   <div class="card-title">
                     <h4>Q4 2016 Result</h4>
                     <p class="update-date">Last Updated: 12/15/2017</p>
@@ -213,7 +218,7 @@
             <a href="#">
               <div class="card">
                 <div class="container">
-                  <img class="image" src="http://localhost:8080/inSource/assets/stickynotes.jpg" alt="results_1">
+                  <img class="image" src="/assets/stickynotes.jpg" alt="results_1">
                   <div class="card-title">
                     <h4>Q3 2016 Result</h4>
                     <p class="update-date">Last Updated: 2016/08/10</p>
@@ -232,7 +237,7 @@
             <a href="#">
               <div class="card">
                 <div class="container">
-                  <img class="image" src="http://localhost:8080/inSource/assets/stickynotes.jpg" alt="results_1">
+                  <img class="image" src="/assets/stickynotes.jpg" alt="results_1">
                   <div class="card-title">
                     <h4>Q2 2016 Result</h4>
                     <p class="update-date">Last Updated: 2017/07/20</p>
@@ -251,7 +256,7 @@
             <a href="#">
               <div class="card">
                 <div class="container">
-                  <img class="image" src="http://localhost:8080/inSource/assets/stickynotes.jpg" alt="results_1">
+                  <img class="image" src="/assets/stickynotes.jpg" alt="results_1">
                   <div class="card-title">
                     <h4>Q1 2016 Result</h4>
                     <p class="update-date">Last Updated: 2017/07/20</p>
@@ -274,44 +279,43 @@
       </div>
     </div>
 </div>
-      <script>
-        // progress bar
+<script>
+  // progress bar
 
+  // toggle hidden divs
+  $('.targetDiv').hide();
+  $('.show').click(function() {
+    $('#div' + $(this).attr('target')).slideToggle('').siblings('.targetDiv').hide('');
+  });
 
-        // toggle hidden divs
-        $('.targetDiv').hide();
-        $('.show').click(function() {
-          $('#div' + $(this).attr('target')).slideToggle('').siblings('.targetDiv').hide('');
-        });
+  // slide results
+  var slideIndex = 1;
+  showSlides(slideIndex);
 
-        // slide results
-        var slideIndex = 1;
-        showSlides(slideIndex);
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
 
-        function plusSlides(n) {
-          showSlides(slideIndex += n);
-        }
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
 
-        function currentSlide(n) {
-          showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-          var i;
-          var slides = document.getElementsByClassName("mySlides");
-          var dots = document.getElementsByClassName("dot");
-          if (n > slides.length) {
-            slideIndex = 1
-          }
-          if (n < 1) {
-            slideIndex = slides.length
-          }
-          for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-          }
-          slides[slideIndex - 1].style.display = "block";
-        }
-      </script>
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {
+      slideIndex = 1
+    }
+    if (n < 1) {
+      slideIndex = slides.length
+    }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slides[slideIndex - 1].style.display = "block";
+  }
+</script>
 </body>
 
 </html>

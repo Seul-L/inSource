@@ -9,7 +9,7 @@
   <title>inSource</title>
 
   <!-- css -->
-  <link rel="stylesheet" href="http://localhost:8080/inSource/css/master.css">
+  <link rel="stylesheet" href="/css/master.css">
 
   <!-- font -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600" rel="stylesheet">
@@ -26,14 +26,14 @@
 <body>
   <header id="split-nav">
     <div class="branding">
-      <a href="http://localhost:8080/inSource/index.php">
-      <img class="logo" src="http://localhost:8080/inSource/assets/logo_inSource.png" alt="inSource logo" /></a>
+      <a href="/index.php">
+      <img class="logo" src="/assets/logo_inSource.png" alt="inSource logo" /></a>
     </div>
     <nav>
       <ul>
         <li><a href="?page=dashboard">Dashboard</a></li>
-        <li><a href="?page=myAccount">My Account</a></li>
-        <li><button href="?page=logout">Log out</button></li>
+        <li><a href="?page=my-account">My Account</a></li>
+          <li><a href="?page=log-out" class="button">Log out</a></li>
       </ul>
     </nav>
   </header>
@@ -55,8 +55,8 @@
 
   <footer>
     <div class="footer-content">
-      <p><i class="fa fa-copyright" aria-hidden="true"></i> 2017
-      <img class="footer-logo" src="http://localhost:8080/inSource/assets/logo_inSource.png" alt="inSource logo"></p>
+      <p id="footertxt"><i class="fa fa-copyright" aria-hidden="true"></i> 2017
+      <img class="footer-logo" src="/assets/logo_inSource.png" alt="inSource logo"></p>
     </div>
   </footer>
 </body>
