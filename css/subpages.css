@@ -2,13 +2,25 @@
 
 /* global */
 
-.submission, .vote {
+.submission, .vote, .sprint, .summary {
   width: 800px;
   margin: auto;
+  margin-top: 30px;
+margin-bottom: 20px;
+}
+
+.xspace{
+  margin-top: 80px;
+  margin-bottom: 80px;
 }
 
 .red {
   color: #C30016;
+  font-weight: 600;
+  margin: 0;
+}
+
+.bolded {
   font-weight: 600;
   margin: 0;
 }
@@ -68,4 +80,32 @@ fieldset {
 
 input[type="checkbox"] {
   display: none;
+}
+
+.label-non-select{
+  height: 65px;
+  border: 1px solid #ccc;
+  background-color: #EFEFEF;
+  box-shadow: 0 0 3px 0 #DBDBDB;
+  border-radius: 32px;
+  padding-top: 20px;
+  padding-left: 30px;
+  margin: 0 0 20px 0;
+  display: block;
+}
+
+.dwnld-summary{
+
+	height: 45px;
+	width: 289px;
+	border-radius: 5px;
+	background-color: #BFE2F5;
+	box-shadow: 1px 2px 2px 0 #B9B6B6;
+
+  padding-top: 10px;
+  padding-left: 10px;
+  margin: 0 0 20px 0;
+  display: block;
+
+
 }

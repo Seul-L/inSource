@@ -79,10 +79,14 @@ require "sign-in-check.php";
         </section>
       </div>
       <div id="div3" class="targetDiv">
-        <section>Sprint Open</section>
+        <section>
+          <?php require("sprint.php");?>
+        </section>
       </div>
       <div id="div4" class="targetDiv">
-        <section>Summary Open</section>
+        <section>
+          <?php require("summary.php");?>
+        </section>
       </div>
     </div>
 
