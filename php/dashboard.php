@@ -41,7 +41,7 @@ require "sign-in-check.php";
          ?>
       </div>
 
-      <a class="show" target="1" href="javascript:toggle();"><div class="btn">Submit</div></a>
+      <a class="show1 chng" target="1" href="javascript:toggle();"><div class="btn" style="background-color: #CCE6F4;" >Submit</div></a>
 
       <div class="progress-bar">
         <div class="prg-percent" role="progressbar" style="width: 25%;">
@@ -284,30 +284,39 @@ require "sign-in-check.php";
     </div>
 </div>
 <script>
-  // progress bar
+// Update progress bar and toggle hidden divs
+$('.targetDiv').hide();
+$('.show1').click(function() {
+  $('#div' + $(this).attr('target')).slideToggle('').siblings('.targetDiv').hide('');
+  $(".btn").css("background-color", "#CCE6F4");
+  $(".prg-percent").css("width", "25%");
+  $(".prg-percent").css("background-color", "#CCE6F4");
+  $(".chng").html("<a class='show1 chng' target='1' href='javascript:toggle();'><div class='btnCol btn'>Submit</div></a>");
+});
 
-  // toggle hidden divs
-  $('.targetDiv').hide();
-  $('.show1').click(function() {
-    $('#div' + $(this).attr('target')).slideToggle('').siblings('.targetDiv').hide('');
-    $(".prg-percent").css("width", "25%");
-  });
+$('.show2').click(function() {
+  $('#div' + $(this).attr('target')).slideToggle('').siblings('.targetDiv').hide('');
+  $(".btn").css("background-color", "#1B98E0");
+  $(".prg-percent").css("width", "50%");
+  $(".prg-percent").css("background-color", "#1B98E0");
+  $(".chng").html("<a class='show2 chng' target='2' href='javascript:toggle();'><div class='btnCol btn'>Vote</div></a>");
+});
 
-  $('.show2').click(function() {
-    $('#div' + $(this).attr('target')).slideToggle('').siblings('.targetDiv').hide('');
-    $(".prg-percent").css("width", "50%");
-  });
+$('.show3').click(function() {
+  $('#div' + $(this).attr('target')).slideToggle('').siblings('.targetDiv').hide('');
+  $(".btn").css("background-color", "#247BA0");
+  $(".prg-percent").css("width", "75%");
+  $(".prg-percent").css("background-color", "#247BA0");
+  $(".chng").html("<a class='show3 chng' target='3' href='javascript:toggle();'><div class='btnCol btn'>Sprint</div></a>");
+});
 
-  $('.show3').click(function() {
-    $('#div' + $(this).attr('target')).slideToggle('').siblings('.targetDiv').hide('');
-    $(".prg-percent").css("width", "75%");
-  });
-
-  $('.show4').click(function() {
-    $('#div' + $(this).attr('target')).slideToggle('').siblings('.targetDiv').hide('');
-    $(".prg-percent").css("width", "100%");
-  });
-
+$('.show4').click(function() {
+  $('#div' + $(this).attr('target')).slideToggle('').siblings('.targetDiv').hide('');
+  $(".btn").css("background-color", "#0B3954");
+  $(".prg-percent").css("width", "100%");
+  $(".prg-percent").css("background-color", "#0B3954");
+  $(".chng").html("<a class='show4 chng' target='4' href='javascript:toggle();'><div class='btnCol btn'>Summary</div></a>");
+});
   // slide results
   var slideIndex = 1;
   showSlides(slideIndex);
