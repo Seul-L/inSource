@@ -50,19 +50,19 @@ require "sign-in-check.php";
 
       <div class="indicator-section">
         <span>
-          <div class="indicator"><a class="show" target="1"  id="submitIndicate" href="javascript:toggle();">Submit</a></div>
+          <div class="indicator"><a class="show1" target="1"  id="submitIndicate" href="javascript:toggle();">Submit</a></div>
         </span>
 
         <span>
-          <div class="indicator"><a class="show" target="2" id="voteIndicate" href="javascript:toggle();">Vote</a></div>
+          <div class="indicator"><a class="show2" target="2" id="voteIndicate" href="javascript:toggle();">Vote</a></div>
         </span>
 
         <span>
-          <div class="indicator"><a class="show" target="3" id="sprintIndicate" href="javascript:toggle();">Sprint</a></div>
+          <div class="indicator"><a class="show3" target="3" id="sprintIndicate" href="javascript:toggle();">Sprint</a></div>
         </span>
 
         <span>
-          <div class="indicator"><a class="show" target="4" id="summaryIndicate"   href="javascript:toggle();">Summary</a></div>
+          <div class="indicator"><a class="show4" target="4" id="summaryIndicate"   href="javascript:toggle();">Summary</a></div>
          </span>
       </div>
     </div>
@@ -288,8 +288,24 @@ require "sign-in-check.php";
 
   // toggle hidden divs
   $('.targetDiv').hide();
-  $('.show').click(function() {
+  $('.show1').click(function() {
     $('#div' + $(this).attr('target')).slideToggle('').siblings('.targetDiv').hide('');
+    $(".prg-percent").css("width", "25%");
+  });
+
+  $('.show2').click(function() {
+    $('#div' + $(this).attr('target')).slideToggle('').siblings('.targetDiv').hide('');
+    $(".prg-percent").css("width", "50%");
+  });
+
+  $('.show3').click(function() {
+    $('#div' + $(this).attr('target')).slideToggle('').siblings('.targetDiv').hide('');
+    $(".prg-percent").css("width", "75%");
+  });
+
+  $('.show4').click(function() {
+    $('#div' + $(this).attr('target')).slideToggle('').siblings('.targetDiv').hide('');
+    $(".prg-percent").css("width", "100%");
   });
 
   // slide results
@@ -319,6 +335,8 @@ require "sign-in-check.php";
     }
     slides[slideIndex - 1].style.display = "block";
   }
+
+
 </script>
 </body>
 
