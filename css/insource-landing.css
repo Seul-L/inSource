@@ -1,4 +1,15 @@
+
+html {
+  height: 100%;
+}
+
+
+
 body {
+  margin: 0;
+  min-height: 100%;
+  background-color: #fff;
+
   font-family: Roboto, sans-serif;
   color: #333;
   font-size: 14px;
@@ -35,6 +46,54 @@ p {
   line-height: 24px;
 }
 
+img {
+  max-width: 100%;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.w-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 940px;
+
+}
+
+.w-block {
+  display: block;
+}
+.w-inline-block {
+  max-width: 100%;
+  display: inline-block;
+}
+.w-clearfix:before,
+.w-clearfix:after {
+  content: " ";
+  display: table;
+}
+.w-clearfix:after {
+  clear: both;
+}
+.w-hidden {
+  display: none;
+}
+
+.w-nav-overlay {
+  position: absolute;
+  overflow: hidden;
+  display: none;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
 .nav {
   display: -webkit-box;
   display: -webkit-flex;
@@ -64,6 +123,39 @@ p {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.w-nav-button {
+  position: relative;
+  float: right;
+  padding: 18px;
+  font-size: 24px;
+  display: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.w-nav-menu {
+  position: relative;
+  float: right;
+}
+
+.w-nav {
+  position: relative;
+  background: #dddddd;
+  z-index: 1000;
+}
+
+.w-nav-brand {
+  position: relative;
+  float: left;
+  text-decoration: none;
+  color: #333333;
 }
 
 .logo {
@@ -845,6 +937,7 @@ p {
 
 .div-block-2.line2 {
   width: 750px;
+  margin-top: 50px;
 }
 
 .div-block-2.line3 {
