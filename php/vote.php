@@ -59,9 +59,14 @@
 
       /* get some values from elements on the page: */
       var $form = $(this),
-        $submit = $form.find('button[type="submit"]'),
-        message_value = $form.find('checkbox[name="voting[]"]').val(),
-        url = $form.attr('action');
+      $messages = $("input[name='voting[]']"),
+      $occup = $form.find('input[name="user-occup"]'),
+      $submit = $form.find('button[type="submit"]'),
+      message_value = [],
+      url = $form.attr('action');
+      $.each($messages, function(idx, val){
+          message_value.push($(val).val());
+      });
 
       var posting = $.post(url, { submission : message_value});
 
