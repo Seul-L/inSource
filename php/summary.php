@@ -30,10 +30,9 @@ Issue / Suggestion submission is Lorem ipsum dolor sit amet, consectetur adipisc
 
 <h3 class= "bolded xspace"> Summary Documents </h3>
 
-<h5 class="dwnld-summary">Implementation Documentation.pdf <i class=“fa fa-arrow-circle-o-down” aria-hidden=“true”></i> </h4>
+<h5 class="dwnld-summary">Implementation Documentation.pdf <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i> </h5>
 
-<h5 class="dwnld-summary">Process Documentation.pdf<i class=“fa fa-arrow-circle-o-down” aria-hidden=“true”></i> </h4>
-
+<h5 class="dwnld-summary">Process Documentation.pdf<i class="fa fa-arrow-circle-o-down" aria-hidden="true" style="margin-left:5px;"></i> </h5>
 
 
   <script type="text/javascript">

@@ -158,19 +158,19 @@ require "sign-in-check.php";
       <div class="slideshow-container">
         <div class="mySlides">
           <div class="slide-content">
-            <a href="/html/Q3result.html">
+            <a href="/html/Q3_2017result.html">
               <div class="card">
                 <div class="container">
                   <img class="image" src="/assets/stickynotes.jpg" alt="results_1">
                   <div class="card-title">
-                    <h4>Q2 2017 Result</h4>
+                    <h4>Q3 2017 Result</h4>
                     <p class="update-date">Last Updated: 2017/07/20</p>
                   </div>
                   <div class="result-desc">
                     <p class="situation" style="color:#417505"><i class="fa fa-circle" aria-hidden="true"></i>Completed (Not Implemented)</p>
                     <p class="desc"><b>Topic:</b> How might we improve the current scheduling system?<br><br><b>Solution:</b> 3 possible solutions were discussed during the workshop but none were implemented due to...</p>
                     <div class="line-top">
-                      <div class="right"><a href="#">Read more</a></div>
+                      <div class="right"><a href="/html/Q3_2017result.html">Read more</a></div>
                     </div>
                   </div>
                 </div>
@@ -182,14 +182,14 @@ require "sign-in-check.php";
                 <div class="container">
                   <img class="image" src="/assets/stickynotes.jpg" alt="results_1">
                   <div class="card-title">
-                    <h4>Q1 2017 Result</h4>
+                    <h4>Q2 2017 Result</h4>
                     <p class="update-date">Last Updated: 06/15/2017</p>
                   </div>
                   <div class="result-desc">
                     <p class="situation" style="color: #4A90E2;"><i class="fa fa-circle" aria-hidden="true"></i>Ongoing (Research)</p>
                     <p class="desc"><b>Topic:</b> How might we improve the driver feedback process?<br><br><b>Solution:</b> To implement performance reviews once a year to that include positive and improvement points...</p>
                     <div class="line-top">
-                      <div class="right"><a href="#">Read more</a></div>
+                      <div class="right"><a href="/html/Q2result.html">Read more</a></div>
                     </div>
                   </div>
                 </div>
@@ -201,14 +201,14 @@ require "sign-in-check.php";
                 <div class="container">
                   <img class="image" src="/assets/stickynotes.jpg" alt="results_1">
                   <div class="card-title">
-                    <h4>Q4 2016 Result</h4>
+                    <h4>Q1 2017 Result</h4>
                     <p class="update-date">Last Updated: 12/15/2017</p>
                   </div>
                   <div class="result-desc">
                     <p class="situation" style="color: #417505;"><i class="fa fa-circle" aria-hidden="true"></i>Completed (Not Implemented)</p>
                     <p class="desc"><b>Topic:</b> How might we improve being notified of detour updates?<br><br><b>Solution:</b> A new online detour system is now available for drivers that will allow them to check updates from their...</p>
                     <div class="line-top">
-                      <div class="right"><a href="#">Read more</a></div>
+                      <div class="right"><a href="/html/Q1result.html">Read more</a></div>
                     </div>
                   </div>
                 </div>
@@ -219,26 +219,45 @@ require "sign-in-check.php";
 
         <div class="mySlides">
           <div class="slide-content">
-            <a href="#">
+            <a href="/html/Q4_2016result.html">
               <div class="card">
                 <div class="container">
                   <img class="image" src="/assets/stickynotes.jpg" alt="results_1">
                   <div class="card-title">
-                    <h4>Q3 2016 Result</h4>
+                    <h4>Q4 2016 Result</h4>
                     <p class="update-date">Last Updated: 2016/08/10</p>
                   </div>
                   <div class="result-desc">
                     <p class="situation" style="color: #4A90E2;"><i class="fa fa-circle" aria-hidden="true"></i>Completed (Implemented)</p>
-                    <p class="desc"><b>Topic:</b> How might we improve the current cleaning system?<br><br><b>Solution:</b> Out of 3 possible solutions discussed during the workshop, we decided to increase frequence of cleaning service...</p>
+                    <p class="desc"><b><b>Topic:</b> How might we improve being notified of detours?<br><br><b>Solution:</b> A new online detour system is now available for drivers that will allow them to check updates from their....</p>
                     <div class="line-top">
-                      <div class="right"><a href="#">Read more</a></div>
+                      <div class="right"><a href="/html/Q3_2016result.html">Read more</a></div>
                     </div>
                   </div>
                 </div>
               </div>
             </a>
 
-            <a href="#">
+            <a href="/html/Q3_2016result.html">
+              <div class="card">
+                <div class="container">
+                  <img class="image" src="/assets/stickynotes.jpg" alt="results_1">
+                  <div class="card-title">
+                    <h4>Q3 2016 Result</h4>
+                    <p class="update-date">Last Updated: 2017/07/20</p>
+                  </div>
+                  <div class="result-desc">
+                    <p class="situation" style="color: #4A90E2;"><i class="fa fa-circle" aria-hidden="true"></i>Completed (Not Implemented)</p>
+                    <p class="desc"><b>Topic:</b> How might we improve the current scheduling system?<br><br><b>Solution:</b> 3 possible solutions were discussed during the workshop but none were implemented due to...</p>
+                    <div class="line-top">
+                      <div class="right"><a href="/html/Q3_2016result.html">Read more</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <a href="/html/Q2_2016result.html">
               <div class="card">
                 <div class="container">
                   <img class="image" src="/assets/stickynotes.jpg" alt="results_1">
@@ -250,26 +269,7 @@ require "sign-in-check.php";
                     <p class="situation" style="color: #4A90E2;"><i class="fa fa-circle" aria-hidden="true"></i>Completed (Not Implemented)</p>
                     <p class="desc"><b>Topic:</b> How might we improve the current scheduling system?<br><br><b>Solution:</b> 3 possible solutions were discussed during the workshop but none were implemented due to...</p>
                     <div class="line-top">
-                      <div class="right"><a href="#">Read more</a></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <a href="#">
-              <div class="card">
-                <div class="container">
-                  <img class="image" src="/assets/stickynotes.jpg" alt="results_1">
-                  <div class="card-title">
-                    <h4>Q1 2016 Result</h4>
-                    <p class="update-date">Last Updated: 2017/07/20</p>
-                  </div>
-                  <div class="result-desc">
-                    <p class="situation" style="color: #4A90E2;"><i class="fa fa-circle" aria-hidden="true"></i>Completed (Not Implemented)</p>
-                    <p class="desc"><b>Topic:</b> How might we improve the current scheduling system?<br><br><b>Solution:</b> 3 possible solutions were discussed during the workshop but none were implemented due to...</p>
-                    <div class="line-top">
-                      <div class="right"><a href="#">Read more</a></div>
+                      <div class="right"><a href="/html/Q2_2016result.html">Read more</a></div>
                     </div>
                   </div>
                 </div>
